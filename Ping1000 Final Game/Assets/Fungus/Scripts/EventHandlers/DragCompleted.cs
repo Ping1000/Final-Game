@@ -45,7 +45,7 @@ namespace Fungus
         [HideInInspector]
         [SerializeField] protected Collider2D targetObject;
 
-        [SerializeField] protected List<Collider2D> targetObjects;
+        [SerializeField] public List<Collider2D> targetObjects;
 
         // There's no way to poll if an object is touching another object, so
         // we have to listen to the callbacks and track the touching state ourselves.
