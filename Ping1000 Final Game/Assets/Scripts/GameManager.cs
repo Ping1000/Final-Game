@@ -18,13 +18,13 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
-        CreateNewPerson();
-
         basketFeatures = new List<PersonFeatures>();
         GenerateBasketList();
         SpawnBaskets();
         peopleBeforeGuaranteed = 3;
-        featuresToCheckFor = 1;
+        featuresToCheckFor = 2;
+
+        CreateNewPerson();
     }
 
     private void GenerateBasketList() {
@@ -52,22 +52,44 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <returns>A PersonFeatures object that should match with one of the baskets.</returns>
     public static PersonFeatures GenerateMatchingFeatures() {
-        // Basket b = instance.baskets
-        return null;
+        PersonFeatures randomP = instance.basketFeatures[Random.Range(0, instance.basketFeatures.Count)];
+        PersonFeatures res = new PersonFeatures();
+
+        switch (featuresToCheckFor) {
+            case 0:
+                // already randomized
+                break;
+            case 1:
+                res.eyes = randomP.eyes;
+                break;
+            case 2:
+                res.hair = randomP.hair;
+                goto case 1;
+            case 3:
+                res.ears = randomP.ears;
+                goto case 2;
+            default:
+                // accessories not implemented
+                goto case 3;
+        }
+
+        return res;
     }
 
     public static void CreateNewPerson() {
         GameObject[] persons = Resources.LoadAll<GameObject>("Persons");
         // randomly pick person body for now
-        GameObject person = Instantiate(persons[Random.Range(0, persons.Length)]);
+        GameObject personObj = Instantiate(persons[Random.Range(0, persons.Length)]);
+        Person person = personObj.GetComponent<Person>();
 
-        //instance.peopleSpawned++;
-        //if (instance.peopleSpawned == peopleBeforeGuaranteed) {
-        //    person.GetComponent<Person>().features = GenerateMatchingFeatures();
-        //}
-        //instance.peopleSpawned %= peopleBeforeGuaranteed;
+        instance.peopleSpawned++;
+        if (instance.peopleSpawned % peopleBeforeGuaranteed == 0) {
+            person.useRandom = false;
+        }
 
-        person.transform.position = new Vector3(15, 2, 0);
-        LeanTween.move(person, new Vector3(0, 2, 0), 2f);
+
+
+        personObj.transform.position = new Vector3(15, 2, 0);
+        LeanTween.move(personObj, new Vector3(0, 2, 0), 2f);
     }
 }
