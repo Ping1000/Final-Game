@@ -49,25 +49,45 @@ public class Basket : MonoBehaviour
     }
 
     public bool DidMeetThreshold() {
-        switch (GameManager.featuresToCheckFor) {
-            case 0:
-                return true;
-            case 1:
-                return (person.features.eyes == basketFeatures.eyes) ? true :  false;
-            case 2:
-                if (person.features.hair == basketFeatures.hair)
-                    goto case 1;
-                else
+        if (basketFeatures.eyes != PersonFeatures.FeatureColor.NONE &&
+            basketFeatures.eyes != person.features.eyes)
+            return false;
+
+        if (basketFeatures.hair != PersonFeatures.FeatureColor.NONE &&
+            basketFeatures.hair != person.features.hair)
+            return false;
+
+        if (basketFeatures.ears != PersonFeatures.FeatureSize.NONE &&
+            basketFeatures.ears != person.features.ears)
+            return false;
+
+        if (basketFeatures.accessories != null) {
+            foreach (string s in basketFeatures.accessories) {
+                if (!person.features.accessories.Contains(s))
                     return false;
-            case 3:
-                if (person.features.ears == basketFeatures.ears)
-                    goto case 2;
-                else
-                    return false;
-            default:
-                // should be checking for accessories here, should just be a list.contains
-                return false;
+            }
         }
+        return true;
+
+        //switch (GameManager.featuresToCheckFor) {
+        //    case 0:
+        //        return true;
+        //    case 1:
+        //        return (person.features.eyes == basketFeatures.eyes) ? true :  false;
+        //    case 2:
+        //        if (person.features.hair == basketFeatures.hair)
+        //            goto case 1;
+        //        else
+        //            return false;
+        //    case 3:
+        //        if (person.features.ears == basketFeatures.ears)
+        //            goto case 2;
+        //        else
+        //            return false;
+        //    default:
+        //        // should be checking for accessories here, should just be a list.contains
+        //        return false;
+        //}
 
         // return person.features.NumSharedFeatures(basketFeatures) >= GameManager.correctFeaturesThreshold;
     }

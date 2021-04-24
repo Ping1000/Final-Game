@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class PersonFeatures {
     // DO NOT assign values to these; keep them as the default 0, 1, ...
     public enum FeatureColor {
+        NONE,
         brown,
         blue,
         green,
@@ -41,8 +43,13 @@ public class PersonFeatures {
         }
     }
 
+    public static FeatureColor RandomFeatureColor() {
+        return (FeatureColor)UnityEngine.Random.Range(1, NumColors - 1);
+    }
+
     // DO NOT assign values to these; keep them as the default 0, 1, ...
     public enum FeatureSize {
+        NONE,
         small,
         medium,
         large
@@ -69,6 +76,10 @@ public class PersonFeatures {
         }
     }
 
+    public static FeatureSize RandomFeatureSize() {
+        return (FeatureSize)UnityEngine.Random.Range(1, NumSizes - 1);
+    }
+
     // might do this differently idk yet
     public FeatureColor eyes;
     public FeatureColor hair;
@@ -80,9 +91,10 @@ public class PersonFeatures {
     public List<string> accessories;
 
     public PersonFeatures() {
-        eyes = (FeatureColor)UnityEngine.Random.Range(0, NumColors - 1);
-        hair = (FeatureColor)UnityEngine.Random.Range(0, NumColors - 1);
-        ears = (FeatureSize)UnityEngine.Random.Range(0, NumSizes - 1);
+        // ignore NONEs when generating randoms
+        eyes = RandomFeatureColor();
+        hair = RandomFeatureColor();
+        ears = RandomFeatureSize();
     }
 
     public PersonFeatures(FeatureColor eyes, FeatureColor hair,
@@ -96,7 +108,6 @@ public class PersonFeatures {
     /// <summary>
     /// Returns the number of shared features across p1 and p2.
     /// </summary>
-    /// <param name="p1"></param>
     /// <param name="p2"></param>
     /// <returns></returns>
     public int NumSharedFeatures(PersonFeatures p2) {
@@ -124,29 +135,61 @@ public class PersonFeatures {
 
     public override string ToString() {
         string res = "";
+        List<string> presentFeatures = new List<string>();
 
-        switch (GameManager.featuresToCheckFor) {
-            case 1:
-                res += FeatureColorToString(eyes) + " eyes.";
-                goto default;
-            case 2:
-                res += FeatureColorToString(hair) + " hair, ";
-                goto case 1;
-            case 3:
-                res += FeatureSizeToString(ears) + " ears, ";
-                goto case 2;
-            default:
-                break;
+        if (eyes != FeatureColor.NONE) {
+            presentFeatures.Add(FeatureColorToString(eyes) + " eyes");
+        }
+        if (hair != FeatureColor.NONE) {
+            presentFeatures.Add(FeatureColorToString(hair) + " hair");
+        }
+        if (ears != FeatureSize.NONE) {
+            presentFeatures.Add(FeatureSizeToString(ears) + " ears");
         }
 
-        if (accessories == null)
+        if (presentFeatures.Count == 0) {
+            res += "";
+        } else if (presentFeatures.Count == 1) {
+            res += presentFeatures[0] + ".";
+        } else {
+            res += presentFeatures[0];
+            for (int i = 1; i < presentFeatures.Count; i++) {
+                res += ", " + presentFeatures[i];
+            }
+            res += ".";
+        }
+
+        //switch (GameManager.featuresToCheckFor) {
+        //    case 1:
+        //        res += FeatureColorToString(eyes) + " eyes.";
+        //        goto default;
+        //    case 2:
+        //        res += FeatureColorToString(hair) + " hair, ";
+        //        goto case 1;
+        //    case 3:
+        //        res += FeatureSizeToString(ears) + " ears, ";
+        //        goto case 2;
+        //    default:
+        //        break;
+        //}
+
+        if (accessories == null || accessories.Count == 0)
             return res;
 
         res += "{wc}";
-        foreach (string elem in accessories) {
-            res += elem + ", ";
+        if (accessories.Count == 1) {
+            res += accessories[0] + ".";
+        } else {
+            res += accessories[0];
+            for (int i = 1; i < accessories.Count; i++) {
+                res += ", " + accessories[i];
+            }
+            res += ".";
         }
-        res += ".";
+        //foreach (string elem in accessories) {
+        //    res += elem + ", ";
+        //}
+        //res += ".";
 
         return res;
     }
