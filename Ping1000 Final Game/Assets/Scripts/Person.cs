@@ -39,7 +39,7 @@ public class Person : MonoBehaviour {
         // randomly assign hair for now
         GameObject hairObj = Instantiate(hairs[Random.Range(0, hairs.Length)], transform);
         IColorable hair = hairObj.GetComponent<IColorable>();
-        hair.SetColor(features.hair);
+        hair.SetColor(features.hairColor);
     }
 
     private void CreateEars() {
@@ -47,7 +47,7 @@ public class Person : MonoBehaviour {
         // randomly assign ear for now
         GameObject earObj = Instantiate(ears[Random.Range(0, ears.Length)], transform);
         ISizeable ear1 = earObj.GetComponent<ISizeable>();
-        ear1.SetSize(features.ears);
+        ear1.SetSize(features.earSize);
 
         DuplicateOnOppositeSide(earObj, transform);
     }
@@ -57,7 +57,7 @@ public class Person : MonoBehaviour {
         // randomly assign eye for now
         GameObject eyeObj = Instantiate(eyes[Random.Range(0, eyes.Length)], transform);
         IColorable eye = eyeObj.GetComponent<IColorable>();
-        eye.SetColor(features.eyes);
+        eye.SetColor(features.eyeColor);
 
         DuplicateOnOppositeSide(eyeObj, transform);
     }

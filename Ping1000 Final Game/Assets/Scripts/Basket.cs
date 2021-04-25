@@ -49,47 +49,40 @@ public class Basket : MonoBehaviour
     }
 
     public bool DidMeetThreshold() {
-        if (basketFeatures.eyes != PersonFeatures.FeatureColor.NONE &&
-            basketFeatures.eyes != person.features.eyes)
+        // more bad spaghetti
+        if (basketFeatures.earSize != PersonFeatures.FeatureSize.NONE &&
+            basketFeatures.earSize != person.features.earSize)
             return false;
 
-        if (basketFeatures.hair != PersonFeatures.FeatureColor.NONE &&
-            basketFeatures.hair != person.features.hair)
+        if (basketFeatures.eyeSize != PersonFeatures.FeatureSize.NONE &&
+            basketFeatures.eyeSize != person.features.eyeSize)
             return false;
 
-        if (basketFeatures.ears != PersonFeatures.FeatureSize.NONE &&
-            basketFeatures.ears != person.features.ears)
+        if (basketFeatures.eyeColor != PersonFeatures.FeatureColor.NONE &&
+            basketFeatures.eyeColor != person.features.eyeColor)
             return false;
 
-        if (basketFeatures.accessories != null) {
-            foreach (string s in basketFeatures.accessories) {
-                if (!person.features.accessories.Contains(s))
-                    return false;
-            }
-        }
+        if (basketFeatures.noseSize != PersonFeatures.FeatureSize.NONE &&
+            basketFeatures.noseSize != person.features.noseSize)
+            return false;
+
+        if (basketFeatures.hairColor != PersonFeatures.FeatureColor.NONE &&
+            basketFeatures.hairColor != person.features.hairColor)
+            return false;
+
+        if (basketFeatures.glasses != PersonFeatures.FeatureBool.NONE &&
+            basketFeatures.glasses != person.features.glasses)
+            return false;
+
+        if (basketFeatures.hat != PersonFeatures.FeatureBool.NONE &&
+            basketFeatures.hat != person.features.hat)
+            return false;
+
+        if (basketFeatures.facialHair != PersonFeatures.FeatureBool.NONE &&
+            basketFeatures.facialHair != person.features.facialHair)
+            return false;
+
         return true;
-
-        //switch (GameManager.featuresToCheckFor) {
-        //    case 0:
-        //        return true;
-        //    case 1:
-        //        return (person.features.eyes == basketFeatures.eyes) ? true :  false;
-        //    case 2:
-        //        if (person.features.hair == basketFeatures.hair)
-        //            goto case 1;
-        //        else
-        //            return false;
-        //    case 3:
-        //        if (person.features.ears == basketFeatures.ears)
-        //            goto case 2;
-        //        else
-        //            return false;
-        //    default:
-        //        // should be checking for accessories here, should just be a list.contains
-        //        return false;
-        //}
-
-        // return person.features.NumSharedFeatures(basketFeatures) >= GameManager.correctFeaturesThreshold;
     }
 
     // mostly used for the flowchart so it can see the method

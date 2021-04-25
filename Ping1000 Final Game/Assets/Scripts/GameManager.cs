@@ -28,41 +28,35 @@ public class GameManager : MonoBehaviour
         CreateNewPerson();
     }
 
-    // this is so bad and so dangerous, also accessories are not supported yet
     private void GenerateBasketList() {
+        bool checkEarSize = featuresToCheckFor.earSize != PersonFeatures.FeatureSize.NONE;
+        bool checkEyeSize = featuresToCheckFor.eyeSize != PersonFeatures.FeatureSize.NONE;
+        bool checkEyeColor = featuresToCheckFor.eyeColor != PersonFeatures.FeatureColor.NONE;
+        bool checkNoseSize = featuresToCheckFor.noseSize != PersonFeatures.FeatureSize.NONE;
+        bool checkHairColor = featuresToCheckFor.hairColor != PersonFeatures.FeatureColor.NONE;
+        bool checkGlasses = featuresToCheckFor.glasses != PersonFeatures.FeatureBool.NONE;
+        bool checkHat = featuresToCheckFor.hat != PersonFeatures.FeatureBool.NONE;
+        bool checkFacialHair = featuresToCheckFor.facialHair != PersonFeatures.FeatureBool.NONE;
+
         foreach (Transform t in basketPositions) {
-            PersonFeatures p = new PersonFeatures(PersonFeatures.FeatureColor.NONE,
-                PersonFeatures.FeatureColor.NONE, PersonFeatures.FeatureSize.NONE,
-                null);
-            bool checkEyes = featuresToCheckFor.eyes != PersonFeatures.FeatureColor.NONE;
-            bool checkHair = featuresToCheckFor.hair != PersonFeatures.FeatureColor.NONE;
-            bool checkEars = featuresToCheckFor.ears != PersonFeatures.FeatureSize.NONE;
+            PersonFeatures p = new PersonFeatures(PersonFeatures.FeatureSize.NONE);
 
-            List<PersonFeatures.FeatureColor> eyeSet = new List<PersonFeatures.FeatureColor>();
-            for (int i = 1; i < PersonFeatures.NumColors; i++) {
-                eyeSet.Add((PersonFeatures.FeatureColor)i);
-            }
-            List<PersonFeatures.FeatureColor> hairSet = new List<PersonFeatures.FeatureColor>(eyeSet);
-            List<PersonFeatures.FeatureSize> earSet = new List<PersonFeatures.FeatureSize>();
-            for (int i = 1; i < PersonFeatures.NumSizes; i++) {
-                earSet.Add((PersonFeatures.FeatureSize)i);
-            }
-
-            if (checkEyes && eyeSet.Count > 0) {
-                int eyeIdx = Random.Range(0, eyeSet.Count);
-                p.eyes = eyeSet[eyeIdx];
-                eyeSet.RemoveAt(eyeIdx);
-            }
-            if (checkHair && hairSet.Count > 0) {
-                int hairIdx = Random.Range(0, hairSet.Count);
-                p.hair = hairSet[hairIdx];
-                hairSet.RemoveAt(hairIdx);
-            }
-            if (checkEars && earSet.Count > 0) {
-                int earIdx = Random.Range(0, earSet.Count);
-                p.ears = earSet[earIdx];
-                earSet.RemoveAt(earIdx);
-            }
+            if (checkEarSize)
+                p.earSize = PersonFeatures.RandomFeatureSize();
+            if (checkEyeSize)
+                p.eyeSize = PersonFeatures.RandomFeatureSize();
+            if (checkEyeColor)
+                p.eyeColor = PersonFeatures.RandomFeatureColor();
+            if (checkNoseSize)
+                p.noseSize = PersonFeatures.RandomFeatureSize();
+            if (checkHairColor)
+                p.hairColor = PersonFeatures.RandomFeatureColor();
+            if (checkGlasses)
+                p.glasses = PersonFeatures.RandomFeatureBool();
+            if (checkHat)
+                p.hat = PersonFeatures.RandomFeatureBool();
+            if (checkFacialHair)
+                p.facialHair = PersonFeatures.RandomFeatureBool();
 
             basketFeatures.Add(p);
         }
@@ -90,32 +84,22 @@ public class GameManager : MonoBehaviour
         PersonFeatures basketP = instance.basketFeatures[Random.Range(0, instance.basketFeatures.Count)];
         PersonFeatures res = new PersonFeatures();
 
-        if (basketP.eyes != PersonFeatures.FeatureColor.NONE)
-            res.eyes = basketP.eyes;
-        if (basketP.hair != PersonFeatures.FeatureColor.NONE)
-            res.hair = basketP.hair;
-        if (basketP.ears != PersonFeatures.FeatureSize.NONE)
-            res.ears = basketP.ears;
-
-        res.accessories = basketP.accessories;
-
-        //switch (featuresToCheckFor) {
-        //    case 0:
-        //        // already randomized
-        //        break;
-        //    case 1:
-        //        res.eyes = basketP.eyes;
-        //        break;
-        //    case 2:
-        //        res.hair = basketP.hair;
-        //        goto case 1;
-        //    case 3:
-        //        res.ears = basketP.ears;
-        //        goto case 2;
-        //    default:
-        //        // accessories not implemented
-        //        goto case 3;
-        //}
+        if (basketP.earSize != PersonFeatures.FeatureSize.NONE)
+            res.earSize = basketP.earSize;
+        if (basketP.eyeSize != PersonFeatures.FeatureSize.NONE)
+            res.eyeSize = basketP.eyeSize;
+        if (basketP.eyeColor != PersonFeatures.FeatureColor.NONE)
+            res.eyeColor = basketP.eyeColor;
+        if (basketP.noseSize != PersonFeatures.FeatureSize.NONE)
+            res.noseSize = basketP.noseSize;
+        if (basketP.hairColor != PersonFeatures.FeatureColor.NONE)
+            res.hairColor = basketP.hairColor;
+        if (basketP.glasses != PersonFeatures.FeatureBool.NONE)
+            res.glasses = basketP.glasses;
+        if (basketP.hat != PersonFeatures.FeatureBool.NONE)
+            res.hat = basketP.hat;
+        if (basketP.facialHair != PersonFeatures.FeatureBool.NONE)
+            res.facialHair = basketP.facialHair;
 
         return res;
     }

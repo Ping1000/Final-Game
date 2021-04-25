@@ -163,6 +163,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0eee96f3f4ff824abfd52a2b3bd05c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basketFeatures:
+    earSize: 0
+    eyeSize: 0
+    eyeColor: 0
+    noseSize: 0
+    hairColor: 0
+    glasses: 0
+    hat: 0
+    facialHair: 0
 --- !u!1 &8937838029549418826
 GameObject:
   m_ObjectHideFlags: 0
