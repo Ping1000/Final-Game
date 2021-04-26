@@ -12,6 +12,7 @@ public class DenyButton : MonoBehaviour
     /// Flowchart attached to this GameObject
     /// </summary>
     private Flowchart _fc;
+    private Person person;
 
     private void Start() {
         _fc = GetComponentInChildren<Flowchart>();
@@ -20,6 +21,16 @@ public class DenyButton : MonoBehaviour
     // mostly used for the flowchart so it can see the method
     public void CreateNewPerson() {
         GameManager.CreateNewPerson();
+    }
+
+    // used for the flowchart
+    public void UpdatePerson() {
+        UpdatePerson(FindObjectOfType<Person>());
+    }
+
+    public void UpdatePerson(Person p) {
+        person = p;
+        _fc.SetGameObjectVariable("Person", p.gameObject);
     }
 
     // Used for the Flowchart's control flow

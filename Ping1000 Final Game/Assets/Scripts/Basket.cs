@@ -33,7 +33,7 @@ public class Basket : MonoBehaviour
         _fc = GetComponentInChildren<Flowchart>();
         _fc.SetStringVariable("BasketDescription", basketFeatures.ToString());
         
-        UpdatePerson();
+        // UpdatePerson();
     }
 
     /// <summary>
@@ -90,5 +90,12 @@ public class Basket : MonoBehaviour
     // mostly used for the flowchart so it can see the method
     public void CreateNewPerson() {
         GameManager.CreateNewPerson();
+    }
+
+    /// <summary>
+    /// Places a new basket
+    /// </summary>
+    public void ReplenishBasket() {
+        FindObjectOfType<GameManager>().PlaceBasket(basketListIdx);
     }
 }

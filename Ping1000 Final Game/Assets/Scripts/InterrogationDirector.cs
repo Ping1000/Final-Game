@@ -55,7 +55,7 @@ public class InterrogationDirector : MonoBehaviour {
             }
         }
 
-        if (p.offByOneFeature != null) {
+        if (p.offByOneFeature != null && p.offByOneFeature != "") {
             // hidden match
             PlayerDialog = "Care to explain some of these discrepancies in your description? {wi}" +
                 "We're specifically looking at an issue with your " + p.offByOneFeature;

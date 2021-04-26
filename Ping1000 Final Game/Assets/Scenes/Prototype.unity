@@ -894,7 +894,7 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 2
   _toFrom: 0
-  _absAdd: 0
+  _absAdd: 1
   easeType: 12
   loopType: 35
   repeats: 0
@@ -905,7 +905,7 @@ MonoBehaviour:
     transformVal: {fileID: 0}
   _toPosition:
     vector3Ref: {fileID: 0}
-    vector3Val: {x: -15, y: 2, z: 0}
+    vector3Val: {x: -15, y: 0, z: 0}
   isLocal: 1
 --- !u!114 &980027756
 MonoBehaviour:
@@ -964,9 +964,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 67
-    y: 70
-    width: 120
+    x: 66
+    y: 68
+    width: 80
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1013,7 +1013,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 980027758}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 980027761}
   variables:
   - {fileID: 980027760}
   - {fileID: 980027764}
@@ -1887,7 +1888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 0}
+  selectedFlowchart: {fileID: 980027759}
 --- !u!4 &1868727070
 Transform:
   m_ObjectHideFlags: 1
