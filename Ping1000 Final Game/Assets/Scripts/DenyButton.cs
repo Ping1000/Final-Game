@@ -34,7 +34,7 @@ public class DenyButton : MonoBehaviour
     private bool DidMeetThreshold() {
         foreach (Basket b in FindObjectsOfType<Basket>()) {
             b.UpdatePerson();
-            if (b.DidMeetThreshold())
+            if (b.WasHiddenMatch() || b.WasTrueMatch())
                 return true;
         }
         return false;

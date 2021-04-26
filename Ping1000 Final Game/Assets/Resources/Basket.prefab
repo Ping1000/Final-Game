@@ -172,6 +172,9 @@ MonoBehaviour:
     glasses: 0
     hat: 0
     facialHair: 0
+  trueMatches: []
+  hiddenMatches: []
+  nonMatches: []
 --- !u!1 &8937838029549418826
 GameObject:
   m_ObjectHideFlags: 0

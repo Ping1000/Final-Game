@@ -5,13 +5,16 @@ using Fungus;
 
 public class Basket : MonoBehaviour
 {
-    [HideInInspector]
     public PersonFeatures basketFeatures;
     public int basketListIdx { set; private get; } // not sure if we'll need yet
 
     private Flowchart _fc;
 
     private Person person;
+
+    public List<GameObject> trueMatches;
+    public List<GameObject> hiddenMatches;
+    public List<GameObject> nonMatches;
 
     // Start is called before the first frame update
     void Start()
@@ -45,44 +48,23 @@ public class Basket : MonoBehaviour
     }
 
     public void UpdateFlowchartBool() {
-        _fc.SetBooleanVariable("PersonFitDescription", DidMeetThreshold());
+        _fc.SetBooleanVariable("PersonFitDescription", WasTrueMatch() || WasHiddenMatch());
     }
 
-    public bool DidMeetThreshold() {
-        // more bad spaghetti
-        if (basketFeatures.earSize != PersonFeatures.FeatureSize.NONE &&
-            basketFeatures.earSize != person.features.earSize)
-            return false;
+    public bool WasTrueMatch() {
+        foreach (GameObject go in trueMatches) {
+            if (go.GetComponent<Person>().features.NonNoneEquals(person.features))
+                return true;
+        }
+        return false;
+    }
 
-        if (basketFeatures.eyeSize != PersonFeatures.FeatureSize.NONE &&
-            basketFeatures.eyeSize != person.features.eyeSize)
-            return false;
-
-        if (basketFeatures.eyeColor != PersonFeatures.FeatureColor.NONE &&
-            basketFeatures.eyeColor != person.features.eyeColor)
-            return false;
-
-        if (basketFeatures.noseSize != PersonFeatures.FeatureSize.NONE &&
-            basketFeatures.noseSize != person.features.noseSize)
-            return false;
-
-        if (basketFeatures.hairColor != PersonFeatures.FeatureColor.NONE &&
-            basketFeatures.hairColor != person.features.hairColor)
-            return false;
-
-        if (basketFeatures.glasses != PersonFeatures.FeatureBool.NONE &&
-            basketFeatures.glasses != person.features.glasses)
-            return false;
-
-        if (basketFeatures.hat != PersonFeatures.FeatureBool.NONE &&
-            basketFeatures.hat != person.features.hat)
-            return false;
-
-        if (basketFeatures.facialHair != PersonFeatures.FeatureBool.NONE &&
-            basketFeatures.facialHair != person.features.facialHair)
-            return false;
-
-        return true;
+    public bool WasHiddenMatch() {
+        foreach (GameObject go in hiddenMatches) {
+            if (go.GetComponent<Person>().features.NonNoneEquals(person.features))
+                return true;
+        }
+        return false;
     }
 
     // mostly used for the flowchart so it can see the method

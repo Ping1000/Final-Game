@@ -13,6 +13,8 @@ public class PersonFeatures {
         green,
         red,
         yellow,
+        blonde,
+        orange,
         black
     }
 
@@ -36,8 +38,12 @@ public class PersonFeatures {
                 return "red";
             case FeatureColor.yellow:
                 return "yellow";
+            case FeatureColor.blonde:
+                return "blonde";
             case FeatureColor.black:
                 return "black";
+            case FeatureColor.orange:
+                return "orange";
             default:
                 Debug.LogError("Unknown color passed into FeatureColorToString");
                 return "unknown color.";
@@ -139,7 +145,7 @@ public class PersonFeatures {
     }
 
     /// <summary>
-    /// Returns the number of shared features across p1 and p2.
+    /// Returns the number of shared features across p1 and b.
     /// </summary>
     /// <param name="p2"></param>
     /// <returns></returns>
@@ -207,5 +213,45 @@ public class PersonFeatures {
                 res.Append(", and " + presentFeatures[presentFeatures.Count - 1]);
                 return res.ToString();
         }
+    }
+
+    public bool Equals(PersonFeatures b) {
+        if (earSize != b.earSize)
+            return false;
+        if (eyeSize != b.eyeSize)
+            return false;
+        if (eyeColor != b.eyeColor)
+            return false;
+        if (noseSize != b.noseSize)
+            return false;
+        if (hairColor != b.hairColor)
+            return false;
+        if (glasses != b.glasses)
+            return false;
+        if (hat != b.hat)
+            return false;
+        if (facialHair != b.facialHair)
+            return false;
+        return true;
+    }
+
+    public bool NonNoneEquals(PersonFeatures b) {
+        if (earSize != FeatureSize.NONE && earSize != b.earSize)
+            return false;
+        if (eyeSize != FeatureSize.NONE && eyeSize != b.eyeSize)
+            return false;
+        if (eyeColor != FeatureColor.NONE && eyeColor != b.eyeColor)
+            return false;
+        if (noseSize != FeatureSize.NONE && noseSize != b.noseSize)
+            return false;
+        if (hairColor != FeatureColor.NONE && hairColor != b.hairColor)
+            return false;
+        if (glasses != FeatureBool.NONE && glasses != b.glasses)
+            return false;
+        if (hat != FeatureBool.NONE && hat != b.hat)
+            return false;
+        if (facialHair != FeatureBool.NONE && facialHair != b.facialHair)
+            return false;
+        return true;
     }
 }
