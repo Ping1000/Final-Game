@@ -4,38 +4,47 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private bool toggleHiddenMatch;
+    private bool toggleHiddenMatch; // yes ==> hidden match, no ==> non match
     public static int guaranteedMatchingPeople; // matching people before a non-matcher
     private int peopleSpawned = 0;
-    // [Tooltip("Non-NONE fields will be checked.")]
-    // public PersonFeatures featuresToCheckFor;
 
+    // List of basket objects in the scene
     public List<GameObject> basketPrefabs;
 
-    public static GameManager instance;
+    /// <summary>
+    /// List of the people who are hidden matchers
+    /// </summary>
     private List<GameObject> hiddenMatchers;
+    /// <summary>
+    /// List of the people who are non-matchers
+    /// </summary>
     private List<GameObject> nonMatchers;
+
+    public static GameManager instance;
 
     private void Awake() {
         instance = this;
     }
 
     private void Start() {
-        // basketFeatures = new List<PersonFeatures>();
-        // GenerateBasketList();
-        DisableBaskets();
-        SpawnBaskets();
-        GenerateNonMatchers();
-        GenerateHiddenMatchers();
-        Debug.Log(hiddenMatchers.Count);
-        guaranteedMatchingPeople = 3;
+        DisableBaskets(); // make baskets inactive
+        SpawnBaskets(); // spawn clones of the (now inactive) baskets
+        GenerateNonMatchers(); // build up the list of non-matching people
+        GenerateHiddenMatchers(); // build up the list of hidden matching people
+        guaranteedMatchingPeople = 3; // we can change
 
-        toggleHiddenMatch = true;
-        CreateNewPerson();
+        toggleHiddenMatch = true; // we can change, this system is basic anyways
+        CreateNewPerson(); // spawn the first NPC
     }
 
+    /// <summary>
+    /// Sets nonMatchers to contain all of the prefabs that are non-matchers
+    /// </summary>
     private void GenerateNonMatchers() {
+        // start with all possible people, then remove if they are a true or
+        // hidden match
         nonMatchers = new List<GameObject>(Resources.LoadAll<GameObject>("Persons/"));
+
         int i = 0;
         while (i < nonMatchers.Count) {
             GameObject go = nonMatchers[i];
@@ -43,6 +52,7 @@ public class GameManager : MonoBehaviour
             bool wasDeleted = false;
             foreach (GameObject basket_go in basketPrefabs) {
                 Basket b = basket_go.GetComponent<Basket>();
+                // remove person if true match
                 foreach (GameObject match_go in b.trueMatches) {
                     if (pf.NonNoneEquals(match_go.GetComponent<Person>().features)) {
                         wasDeleted = true;
@@ -52,6 +62,7 @@ public class GameManager : MonoBehaviour
                 }
                 if (wasDeleted)
                     break;
+                // remove person if hidden match
                 foreach (GameObject match_go in b.hiddenMatches) {
                     if (pf.NonNoneEquals(match_go.GetComponent<Person>().features)) {
                         wasDeleted = true;
@@ -67,9 +78,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets hiddenMatchesrs to contain all of the prefabs that are non-matchers
+    /// </summary>
     private void GenerateHiddenMatchers() {
+        // start with each basket's hiddenMatches, then remove true matchers
         HashSet<GameObject> hiddenSet = new HashSet<GameObject>();
 
+        // add all people in hiddenMatches
         foreach (GameObject basket_go in basketPrefabs) {
             Basket b = basket_go.GetComponent<Basket>();
             foreach (GameObject hidden_go in b.hiddenMatches) {
@@ -77,6 +93,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        // remove people who appeared in other baskets' true matches
         foreach (GameObject basket_go in basketPrefabs) {
             Basket b = basket_go.GetComponent<Basket>();
             foreach (GameObject match_go in b.trueMatches) {
@@ -90,56 +107,36 @@ public class GameManager : MonoBehaviour
         hiddenMatchers = new List<GameObject>(hiddenSet);
     }
 
+    /// <summary>
+    /// Returns a refernce to one of a random person from hiddenMatchers
+    /// </summary>
+    /// <returns>A reference to a random person prefab in hiddenMatchers</returns>
     private GameObject SelectHiddenMatchingPerson() {
         return hiddenMatchers[Random.Range(0, hiddenMatchers.Count)];
     }
 
-    //private void GenerateBasketList() {
-    //    bool checkEarSize = featuresToCheckFor.earSize != PersonFeatures.FeatureSize.NONE;
-    //    bool checkEyeSize = featuresToCheckFor.eyeSize != PersonFeatures.FeatureSize.NONE;
-    //    bool checkEyeColor = featuresToCheckFor.eyeColor != PersonFeatures.FeatureColor.NONE;
-    //    bool checkNoseSize = featuresToCheckFor.noseSize != PersonFeatures.FeatureSize.NONE;
-    //    bool checkHairColor = featuresToCheckFor.hairColor != PersonFeatures.FeatureColor.NONE;
-    //    bool checkGlasses = featuresToCheckFor.glasses != PersonFeatures.FeatureBool.NONE;
-    //    bool checkHat = featuresToCheckFor.hat != PersonFeatures.FeatureBool.NONE;
-    //    bool checkFacialHair = featuresToCheckFor.facialHair != PersonFeatures.FeatureBool.NONE;
-
-    //    foreach (Transform t in basketPositions) {
-    //        PersonFeatures p = new PersonFeatures(PersonFeatures.FeatureSize.NONE);
-
-    //        if (checkEarSize)
-    //            p.earSize = PersonFeatures.RandomFeatureSize();
-    //        if (checkEyeSize)
-    //            p.eyeSize = PersonFeatures.RandomFeatureSize();
-    //        if (checkEyeColor)
-    //            p.eyeColor = PersonFeatures.RandomFeatureColor();
-    //        if (checkNoseSize)
-    //            p.noseSize = PersonFeatures.RandomFeatureSize();
-    //        if (checkHairColor)
-    //            p.hairColor = PersonFeatures.RandomFeatureColor();
-    //        if (checkGlasses)
-    //            p.glasses = PersonFeatures.RandomFeatureBool();
-    //        if (checkHat)
-    //            p.hat = PersonFeatures.RandomFeatureBool();
-    //        if (checkFacialHair)
-    //            p.facialHair = PersonFeatures.RandomFeatureBool();
-
-    //        basketFeatures.Add(p);
-    //    }
-    //}
-
+    /// <summary>
+    /// Set the basket prefabs to inactive. Used at the start
+    /// </summary>
     private void DisableBaskets() {
         foreach (GameObject go in basketPrefabs) {
             go.SetActive(false);
         }
     }
 
+    /// <summary>
+    /// Spawn in the set of baskets. Used at the start
+    /// </summary>
     private void SpawnBaskets() {
         for (int i = 0; i < basketPrefabs.Count; i++) {
             PlaceBasket(i);
         }
     }
 
+    /// <summary>
+    /// Spawns a clone of basketPrefabs[idx]
+    /// </summary>
+    /// <param name="idx"></param>
     public void PlaceBasket(int idx) {
         GameObject basketObj = Instantiate(basketPrefabs[idx]);
         basketObj.SetActive(true);
@@ -176,6 +173,10 @@ public class GameManager : MonoBehaviour
         return res;
     }
 
+    /// <summary>
+    /// Returns a refernce to one of a random person from trueMatchers
+    /// </summary>
+    /// <returns>A reference to a random person prefab in trueMatchers</returns>
     private GameObject SelectMatchingPerson() {
         int basketIdx = Random.Range(0, basketPrefabs.Count);
         List<GameObject> matchingPeople = basketPrefabs[basketIdx].
@@ -185,15 +186,18 @@ public class GameManager : MonoBehaviour
         return matchingPeople[personIdx];
     }
 
+    /// <summary>
+    /// Returns a refernce to one of a random person from nonMatchers
+    /// </summary>
+    /// <returns>A reference to a random person prefab in nonMatchers</returns>
     private GameObject SelectNonmatchingPerson() {
         return nonMatchers[Random.Range(0, nonMatchers.Count)];
     }
 
+    /// <summary>
+    /// Instantiate a new person
+    /// </summary>
     public static void CreateNewPerson() {
-        //GameObject[] persons = Resources.LoadAll<GameObject>("Persons");
-        //// randomly pick person body for now
-        //GameObject personObj = Instantiate(persons[Random.Range(0, persons.Length)]);
-        //Person person = personObj.GetComponent<Person>();
         GameObject personObj;
 
         instance.peopleSpawned++;

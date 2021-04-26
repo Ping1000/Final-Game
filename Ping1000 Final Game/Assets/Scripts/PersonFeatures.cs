@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
+/// <summary>
+/// Class containing information and methods
+/// pertaining to the distinguising features of a person.
+/// </summary>
 public class PersonFeatures {
     // DO NOT assign values to these; keep them as the default 0, 1, ...
     public enum FeatureColor {
@@ -235,6 +239,13 @@ public class PersonFeatures {
         return true;
     }
 
+    /// <summary>
+    /// Checks equality with b, but ignores fields in *this* PersonFeatures
+    /// object that are NONE. Useful for checking baskets with people, since
+    /// the basket features will be a subset of a person's features.
+    /// </summary>
+    /// <param name="b"></param>
+    /// <returns></returns>
     public bool NonNoneEquals(PersonFeatures b) {
         if (earSize != FeatureSize.NONE && earSize != b.earSize)
             return false;

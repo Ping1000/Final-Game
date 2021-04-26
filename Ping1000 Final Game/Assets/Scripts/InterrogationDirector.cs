@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
+/// <summary>
+/// Attached to the Character flowcharts and drives the interrogations
+/// </summary>
 public class InterrogationDirector : MonoBehaviour {
     private Flowchart _fc;
 
@@ -11,6 +14,7 @@ public class InterrogationDirector : MonoBehaviour {
         _fc = GetComponent<Flowchart>();
     }
 
+    // flowchart variable
     private string PlayerDialog { get {
             if (_fc == null)
                 return null;
@@ -20,6 +24,7 @@ public class InterrogationDirector : MonoBehaviour {
         }
     }
 
+    // flowchart variable
     private string ResponseDialog { get {
             if (_fc == null)
                 return null;
@@ -29,9 +34,11 @@ public class InterrogationDirector : MonoBehaviour {
         }
     }
 
+    // Called by the flowchart when the interrogation was started
     public void OnInterrogationStarted() {
         Person p = transform.GetComponentInParent<Person>();
 
+        // determine if the person was a true or hidden match
         foreach (Basket b in FindObjectsOfType<Basket>()) {
             b.UpdatePerson();
             // if true match
@@ -47,8 +54,9 @@ public class InterrogationDirector : MonoBehaviour {
                 p.SetOffByOneFeature(b);
             }
         }
+
         if (p.offByOneFeature != null) {
-            // off by one
+            // hidden match
             PlayerDialog = "Care to explain some of these discrepancies in your description? {wi}" +
                 "We're specifically looking at an issue with your " + p.offByOneFeature;
             ResponseDialog = GetGenuineExcuse(p.offByOneFeature);
@@ -60,21 +68,13 @@ public class InterrogationDirector : MonoBehaviour {
             ResponseDialog = non_match_responses[Random.Range(0, non_match_responses.Length)];
         }
         _fc.ExecuteBlock("Play Interrogation Dialog");
-
-        /*
-         * pseudocode:
-         * switch (p.type):
-         *   case true_match:
-         *     responsedialog = random true match response
-         *   case hidden_match:
-         *     responsedialog = genuine excuse based on the feature that is wrong
-         *   case non_match:
-         *     responsedialog is either
-         *       random non_match response OR
-         *       excuse based on the feature that is different but it's the wrong feature
-         */
     }
 
+    /// <summary>
+    /// Returns one of the genuine excuses for having a different feature
+    /// </summary>
+    /// <param name="featureStr"></param>
+    /// <returns></returns>
     private string GetGenuineExcuse(string featureStr) {
         switch (featureStr) {
             case "ears":

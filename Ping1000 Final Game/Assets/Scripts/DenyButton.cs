@@ -3,23 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
+/// <summary>
+/// Script for the "deny" button
+/// </summary>
 public class DenyButton : MonoBehaviour
 {
+    /// <summary>
+    /// Flowchart attached to this GameObject
+    /// </summary>
     private Flowchart _fc;
-    private Person person;
 
     private void Start() {
         _fc = GetComponentInChildren<Flowchart>();
-    }
-
-    public void UpdatePerson() {
-        person = FindObjectOfType<Person>();
-        _fc.SetGameObjectVariable("Person", person.gameObject);
-    }
-
-    public void UpdatePerson(Person p) {
-        person = p;
-        _fc.SetGameObjectVariable("Person", p.gameObject);
     }
 
     // mostly used for the flowchart so it can see the method
@@ -27,10 +22,15 @@ public class DenyButton : MonoBehaviour
         GameManager.CreateNewPerson();
     }
 
+    // Used for the Flowchart's control flow
     public void UpdateFlowchartBool() {
         _fc.SetBooleanVariable("WasAble", DidMeetThreshold());
     }
 
+    /// <summary>
+    /// Returns true if the active person is a true or hidden match
+    /// </summary>
+    /// <returns></returns>
     private bool DidMeetThreshold() {
         foreach (Basket b in FindObjectsOfType<Basket>()) {
             b.UpdatePerson();

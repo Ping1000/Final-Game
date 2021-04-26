@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script for the Person GameObjects
+/// </summary>
 public class Person : MonoBehaviour
 {
     public PersonFeatures features;
@@ -10,22 +13,22 @@ public class Person : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
+        // using invoke sucks but i'm keeping it for now
         Invoke("UpdateBasketPerson", Time.deltaTime);
     }
 
-    // using invoke sucks but i'm keeping it for now
     private void UpdateBasketPerson() {
         foreach (Basket b in FindObjectsOfType<Basket>()) {
             b.UpdatePerson();
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// For a hidden person, returns a string corresponding to the one feature
+    /// that is different from b
+    /// </summary>
+    /// <param name="b">Basket to compare with</param>
+    /// <returns></returns>
     public string GetOffByOneFeature(Basket b) {
         PersonFeatures f = b.basketFeatures;
 
@@ -73,6 +76,10 @@ public class Person : MonoBehaviour
         return null;
     }
 
+    /// <summary>
+    /// Sets offByOneFeature to GetOffByOneFeature(b)
+    /// </summary>
+    /// <param name="b"></param>
     public void SetOffByOneFeature(Basket b) {
         offByOneFeature = GetOffByOneFeature(b);
     }
