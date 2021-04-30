@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,19 @@ public class GameManager : MonoBehaviour
     // List of basket objects in the scene
     public List<GameObject> basketPrefabs;
 
+    public QuotaUI quotaUI;
+    public WinPanel winObj;
+    public int quota;
+
+    private int _correctBaskets;
+    [HideInInspector]
+    public int CorrectBaskets { get { return _correctBaskets; } set {
+            _correctBaskets = value;
+            quotaUI.UpdateQuotaText();
+            if (_correctBaskets >= quota && OnQuotaMet != null)
+                OnQuotaMet();
+        } }
+
     /// <summary>
     /// List of the people who are hidden matchers
     /// </summary>
@@ -20,10 +34,14 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private List<GameObject> nonMatchers;
 
+    private bool isPlaying;
+
     public static GameManager instance;
+    public static event Action OnQuotaMet;
 
     private void Awake() {
         instance = this;
+        isPlaying = true;
     }
 
     private void Start() {
@@ -32,6 +50,12 @@ public class GameManager : MonoBehaviour
         GenerateNonMatchers(); // build up the list of non-matching people
         GenerateHiddenMatchers(); // build up the list of hidden matching people
         guaranteedMatchingPeople = 3; // we can change
+
+        OnQuotaMet += (() => {
+            instance.isPlaying = false;
+            Timer.StopCountdown();
+            });
+        Timer.OnCountdownComplete += (() => instance.isPlaying = false);
 
         toggleHiddenMatch = true; // we can change, this system is basic anyways
         CreateNewPerson(); // spawn the first NPC
@@ -112,7 +136,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <returns>A reference to a random person prefab in hiddenMatchers</returns>
     private GameObject SelectHiddenMatchingPerson() {
-        return hiddenMatchers[Random.Range(0, hiddenMatchers.Count)];
+        return hiddenMatchers[UnityEngine.Random.Range(0, hiddenMatchers.Count)];
     }
 
     /// <summary>
@@ -138,6 +162,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <param name="idx"></param>
     public void PlaceBasket(int idx) {
+        if (!instance.isPlaying)
+            return;
         GameObject basketObj = Instantiate(basketPrefabs[idx]);
         basketObj.SetActive(true);
         Basket basket = basketObj.GetComponent<Basket>();
@@ -149,7 +175,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <returns>A PersonFeatures object that should match with one of the baskets.</returns>
     public static PersonFeatures GenerateMatchingFeatures() {
-        PersonFeatures basketP = instance.basketPrefabs[Random.Range(0, instance.basketPrefabs.Count)].
+        PersonFeatures basketP = instance.basketPrefabs[UnityEngine.Random.Range(0, instance.basketPrefabs.Count)].
             GetComponent<Basket>().basketFeatures;
         PersonFeatures res = new PersonFeatures();
 
@@ -178,10 +204,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <returns>A reference to a random person prefab in trueMatchers</returns>
     private GameObject SelectMatchingPerson() {
-        int basketIdx = Random.Range(0, basketPrefabs.Count);
+        int basketIdx = UnityEngine.Random.Range(0, basketPrefabs.Count);
         List<GameObject> matchingPeople = basketPrefabs[basketIdx].
             GetComponent<Basket>().trueMatches;
-        int personIdx = Random.Range(0, matchingPeople.Count);
+        int personIdx = UnityEngine.Random.Range(0, matchingPeople.Count);
 
         return matchingPeople[personIdx];
     }
@@ -191,13 +217,22 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <returns>A reference to a random person prefab in nonMatchers</returns>
     private GameObject SelectNonmatchingPerson() {
-        return nonMatchers[Random.Range(0, nonMatchers.Count)];
+        return nonMatchers[UnityEngine.Random.Range(0, nonMatchers.Count)];
+    }
+
+    private void OnDayCompleted() {
+        winObj.ShowWinScreen(CorrectBaskets >= quota);
     }
 
     /// <summary>
     /// Instantiate a new person
     /// </summary>
     public static void CreateNewPerson() {
+        if (!instance.isPlaying) {
+            instance.OnDayCompleted();
+            return;
+        }
+
         GameObject personObj;
 
         instance.peopleSpawned++;

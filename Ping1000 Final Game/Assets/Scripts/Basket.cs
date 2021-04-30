@@ -60,10 +60,14 @@ public class Basket : MonoBehaviour
     }
 
     /// <summary>
-    /// Used for the Flowchart's control flow
+    /// Determines if a person met this basket's description. Used for the
+    /// Flowchart's control flow and to determine if we need to increase
+    /// correct baskets in GameManager
     /// </summary>
     public void UpdateFlowchartBool() {
-        _fc.SetBooleanVariable("PersonFitDescription", WasTrueMatch() || WasHiddenMatch());
+        bool fitDesc = WasTrueMatch() || WasHiddenMatch();
+        GameManager.instance.CorrectBaskets += (fitDesc ? 1 : 0);
+        _fc.SetBooleanVariable("PersonFitDescription", fitDesc);
     }
 
     // Used for the Flowchart's control flow
