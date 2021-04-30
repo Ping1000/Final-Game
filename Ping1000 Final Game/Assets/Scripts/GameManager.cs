@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public WinPanel winObj;
     public int quota;
 
+   
+
     private int _correctBaskets;
     [HideInInspector]
     public int CorrectBaskets { get { return _correctBaskets; } set {
@@ -249,8 +251,8 @@ public class GameManager : MonoBehaviour
             // person.useRandom = false;
             personObj = Instantiate(instance.SelectMatchingPerson());
         }
-
-        personObj.transform.position = new Vector3(15, 2, 0);
-        LeanTween.move(personObj, new Vector3(0, 2, 0), 2f);
+        // This is bad, it would be better to have start position and move vector as an input with a default value that you can change around. This is working for now though...
+        personObj.transform.position = new Vector3(15, 0, 0); 
+        LeanTween.move(personObj, new Vector3(1, 0, 0), 2f);
     }
 }
