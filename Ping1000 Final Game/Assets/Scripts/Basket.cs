@@ -66,9 +66,12 @@ public class Basket : MonoBehaviour
     /// </summary>
     public void UpdateFlowchartBool() {
         bool fitDesc = WasTrueMatch() || WasHiddenMatch();
-        GameManager.instance.CorrectBaskets += (fitDesc ? 1 : 0);
+        bool wasWolf = LevelController.GetDailyWolfFeatures().
+            NonNoneEquals(person.features);
+        GameManager.instance.CorrectBaskets += (fitDesc && (!wasWolf) ? 1 : 0);
         person.GetComponent<Collider2D>().enabled = false;
         _fc.SetBooleanVariable("PersonFitDescription", fitDesc);
+        _fc.SetBooleanVariable("WasWolf", wasWolf);
     }
 
     // Used for the Flowchart's control flow
@@ -95,6 +98,11 @@ public class Basket : MonoBehaviour
     // mostly used for the flowchart so it can see the method
     public void CreateNewPerson() {
         GameManager.CreateNewPerson();
+    }
+
+    // used by the flowchart
+    public void GaveToWolf() {
+        LevelController.instance.winObj.ShowWolfScene();
     }
 
     /// <summary>

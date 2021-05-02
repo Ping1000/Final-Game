@@ -23,9 +23,13 @@ public class WinPanel : MonoBehaviour {
 
     }
 
-    public void ShowWinScreen(bool didWin) {
-        winText.text = didWin ? "You met your daily quota!" :
-            "You did not meet your daily quota.";
+    public void ShowWinScreen(bool didWin, string msg = "") {
+        if (msg == "") {
+            winText.text = didWin ? "You met your daily quota!" :
+                "You did not meet your daily quota.";
+        } else {
+            winText.text = msg;
+        }
         gameObject.SetActive(true);
         winPanel.color = new Color(0, 0, 0, 0);
         if (objsToDeactivate != null) {
@@ -41,6 +45,11 @@ public class WinPanel : MonoBehaviour {
             else
                 LevelController.instance.RestartDay();
         });
+    }
+
+    public void ShowWolfScene() {
+        ShowWinScreen(false,
+            "You gave the wolf a basket. They went on to terrorize the village.");
     }
 
     /// <summary>

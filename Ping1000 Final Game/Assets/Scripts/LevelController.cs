@@ -42,11 +42,12 @@ public class LevelController : MonoBehaviour
     public void StartNextDay() {
         dayIdx++;
         float transitionTime = 2f;
-        winObj.TextFadeOutIn("Day " + (dayIdx + 1), transitionTime);
         if (dayIdx >= dailyFeatures.Count)
-            Invoke("GoToWinScene", transitionTime + 1);
-        else
+            Invoke("GoToWinScene", 1);
+        else {
+            winObj.TextFadeOutIn("Day " + (dayIdx + 1), transitionTime);
             Invoke("ReloadScene", transitionTime + 1);
+        }
     }
 
     public void RestartDay() {

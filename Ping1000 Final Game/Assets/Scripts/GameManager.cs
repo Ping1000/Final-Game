@@ -258,6 +258,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void IncreaseQuota(int amount) {
+        quota += amount;
+        quotaUI.UpdateQuotaText();
+    }
+
     private void RefreshBaskets() {
         foreach (Basket b in FindObjectsOfType<Basket>()) {
             Destroy(b.gameObject);
