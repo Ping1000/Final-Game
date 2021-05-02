@@ -146,6 +146,38 @@ public class PersonFeatures {
     }
 
     /// <summary>
+    /// Creates a PersonFeatures that copies the non-NONE features from
+    /// nonNoneTemplate, and fills the rest with random features.
+    /// </summary>
+    /// <param name="nonNoneTemplate"></param>
+    public PersonFeatures(PersonFeatures nonNoneTemplate) {
+        earSize = RandomFeatureSize();
+        if (nonNoneTemplate.earSize != FeatureSize.NONE)
+            earSize = nonNoneTemplate.earSize;
+        eyeSize = RandomFeatureSize();
+        if (nonNoneTemplate.eyeSize != FeatureSize.NONE)
+            eyeSize = nonNoneTemplate.eyeSize;
+        eyeColor = RandomFeatureColor();
+        if (nonNoneTemplate.eyeColor != FeatureColor.NONE)
+            eyeColor = nonNoneTemplate.eyeColor;
+        noseSize = RandomFeatureSize();
+        if (nonNoneTemplate.noseSize != FeatureSize.NONE)
+            noseSize = nonNoneTemplate.noseSize;
+        hairColor = RandomFeatureColor();
+        if (nonNoneTemplate.hairColor != FeatureColor.NONE)
+            hairColor = nonNoneTemplate.hairColor;
+        glasses = RandomFeatureBool();
+        if (nonNoneTemplate.glasses != FeatureBool.NONE)
+            glasses = nonNoneTemplate.glasses;
+        hat = RandomFeatureBool();
+        if (nonNoneTemplate.hat != FeatureBool.NONE)
+            hat = nonNoneTemplate.hat;
+        facialHair = RandomFeatureBool();
+        if (nonNoneTemplate.facialHair != FeatureBool.NONE)
+            facialHair = nonNoneTemplate.facialHair;
+    }
+
+    /// <summary>
     /// Returns the number of shared features across p1 and b.
     /// </summary>
     /// <param name="p2"></param>

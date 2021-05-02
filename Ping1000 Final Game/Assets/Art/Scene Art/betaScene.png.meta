@@ -8,6 +8,15 @@ TextureImporter:
   - first:
       213: -642694091415992944
     second: wanted_selected
+  - first:
+      213: 1768770101213804405
+    second: bell_unselected
+  - first:
+      213: 4373398377642975260
+    second: bell_selected
+  - first:
+      213: -4027897586164813052
+    second: wolf_button
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,7 +122,7 @@ TextureImporter:
         width: 246
         height: 296
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,7 +143,7 @@ TextureImporter:
         width: 253
         height: 305
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,6 +151,90 @@ TextureImporter:
       bones: []
       spriteID: 09548e50121b417f0800000000000000
       internalID: -642694091415992944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basket_selected
+      rect:
+        serializedVersion: 2
+        x: 5791
+        y: 679
+        width: 201
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2d7bb1f7aae32480800000000000000
+      internalID: -8925032029482156758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bell_unselected
+      rect:
+        serializedVersion: 2
+        x: 5576
+        y: 888
+        width: 80
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5773e24290feb8810800000000000000
+      internalID: 1768770101213804405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bell_selected
+      rect:
+        serializedVersion: 2
+        x: 5712
+        y: 882
+        width: 86
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c10eda837ae61bc30800000000000000
+      internalID: 4373398377642975260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wolf_button
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 1545
+        width: 72
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4033ef07c780a18c0800000000000000
+      internalID: -4027897586164813052
       vertices: []
       indices: 
       edges: []

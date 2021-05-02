@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
     // private bool toggleHiddenMatch; // yes ==> hidden match, no ==> non match
     public static int guaranteedMatchingPeople; // matching people before a non-matcher
+    public static int peopleBeforeWolf;
     private int peopleSpawned = 0;
 
     private PersonFeatures featuresToCheckFor;
@@ -58,11 +58,12 @@ public class GameManager : MonoBehaviour
         GenerateNonMatchers(); // build up the list of non-matching people
         GenerateHiddenMatchers(); // build up the list of hidden matching people
         guaranteedMatchingPeople = 3; // we can change
+        peopleBeforeWolf = 8;
 
         OnQuotaMet += (() => {
             instance.isPlaying = false;
             Timer.StopCountdown();
-            });
+        });
         Timer.OnCountdownComplete += (() => instance.isPlaying = false);
 
         // toggleHiddenMatch = true; // we can change, this system is basic anyways
@@ -214,6 +215,15 @@ public class GameManager : MonoBehaviour
         int personIdx = UnityEngine.Random.Range(0, matchingPeople.Count);
 
         try {
+            // pick a non-wolf
+            GameObject person_go = matchingPeople[personIdx];
+            if (matchingPeople.Count < 2)
+                throw new IndexOutOfRangeException();
+            while (LevelController.GetDailyWolfFeatures().
+                NonNoneEquals(person_go.GetComponent<Person>().features)) {
+                personIdx = UnityEngine.Random.Range(0, matchingPeople.Count);
+                person_go = matchingPeople[personIdx];
+            }
             return matchingPeople[personIdx];
         } catch {
             return SelectHiddenMatchingPerson(true);
@@ -226,7 +236,15 @@ public class GameManager : MonoBehaviour
     /// <returns>A reference to a random person prefab in hiddenMatchers</returns>
     private GameObject SelectHiddenMatchingPerson(bool calledFromMatching = false) {
         try {
-            return hiddenMatchers[UnityEngine.Random.Range(0, hiddenMatchers.Count)];
+            // pick a non-wolf
+            GameObject person_go = hiddenMatchers[UnityEngine.Random.Range(0, hiddenMatchers.Count)];
+            if (hiddenMatchers.Count < 2)
+                throw new IndexOutOfRangeException();
+            while (LevelController.GetDailyWolfFeatures().
+                NonNoneEquals(person_go.GetComponent<Person>().features)) {
+                person_go = hiddenMatchers[UnityEngine.Random.Range(0, hiddenMatchers.Count)];
+            }
+            return person_go;
         } catch {
             if (calledFromMatching) {
                 // no matchers, no hidden matchers, should refresh the list
@@ -263,10 +281,36 @@ public class GameManager : MonoBehaviour
     /// <returns>A reference to a random person prefab in nonMatchers</returns>
     private GameObject SelectNonmatchingPerson() {
         try {
-            return nonMatchers[UnityEngine.Random.Range(0, nonMatchers.Count)];
+            // pick a non-wolf
+            GameObject person_go = nonMatchers[UnityEngine.Random.Range(0, nonMatchers.Count)];
+            if (nonMatchers.Count < 2)
+                throw new IndexOutOfRangeException();
+            while (LevelController.GetDailyWolfFeatures().
+                NonNoneEquals(person_go.GetComponent<Person>().features)) {
+                person_go = nonMatchers[UnityEngine.Random.Range(0, nonMatchers.Count)];
+            }
+            return person_go;
         } catch (IndexOutOfRangeException) {
             return SelectMatchingPerson();
         }
+    }
+
+    private GameObject SelectWolf() {
+        // we should pick level specs such that there's always a wolf person
+        GameObject[] person_objects = Resources.LoadAll<GameObject>("Persons/");
+        List<GameObject> obj_list = new List<GameObject>(person_objects);
+        PersonFeatures levelWolf = LevelController.GetDailyWolfFeatures();
+
+        int i = 0;
+        while (i < obj_list.Count) {
+            PersonFeatures pf = obj_list[i].GetComponent<Person>().features;
+            if (!levelWolf.NonNoneEquals(pf))
+                obj_list.Remove(obj_list[i]);
+            else
+                i++;
+        }
+
+        return obj_list[UnityEngine.Random.Range(0, obj_list.Count)];
     }
 
     /// <summary>
@@ -293,6 +337,9 @@ public class GameManager : MonoBehaviour
 
             // so many matches that nonmatchers are very infrequent
             personObj = Instantiate(instance.SelectNonmatchingPerson());
+        } else if (instance.peopleSpawned % peopleBeforeWolf == 0) {
+            // spawn wolf
+            personObj = Instantiate(instance.SelectWolf());
         } else {
             // person.useRandom = false;
             personObj = Instantiate(instance.SelectMatchingPerson());

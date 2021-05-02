@@ -1,0 +1,668 @@
+fileFormatVersion: 2
+guid: 558f6cde088f14c39b9f7187540dcf5b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3118735977296464115
+    second: Axe Throw_0
+  - first:
+      213: -8981870132770385947
+    second: Axe Throw_1
+  - first:
+      213: 7721446460049502601
+    second: Axe Throw_2
+  - first:
+      213: -6445253658843534213
+    second: Axe Throw_3
+  - first:
+      213: -7965189705371687393
+    second: Axe Throw_4
+  - first:
+      213: -1489417034569587571
+    second: Axe Throw_5
+  - first:
+      213: 2087761538209713711
+    second: Axe Throw_6
+  - first:
+      213: 3794778435679880290
+    second: Axe Throw_7
+  - first:
+      213: -1604331371718466920
+    second: Axe Throw_8
+  - first:
+      213: -1592280613072781591
+    second: Axe Throw_9
+  - first:
+      213: -3357152417780753757
+    second: Axe Throw_10
+  - first:
+      213: -5732706486369733318
+    second: Axe Throw_11
+  - first:
+      213: 7544515201001871466
+    second: Axe Throw_12
+  - first:
+      213: -8803234687644466387
+    second: Axe Throw_13
+  - first:
+      213: 4912248173154657980
+    second: Axe Throw_14
+  - first:
+      213: 8614220133261649863
+    second: Axe Throw_15
+  - first:
+      213: 1502415742694959266
+    second: Axe Throw_16
+  - first:
+      213: -4335457020148159037
+    second: Axe Throw_17
+  - first:
+      213: 8932124730121032084
+    second: Axe Throw_18
+  - first:
+      213: -808991615773159347
+    second: Axe Throw_19
+  - first:
+      213: -7397076614048429695
+    second: Axe Throw_20
+  - first:
+      213: -3906633043875495338
+    second: Axe Throw_21
+  - first:
+      213: 2399158836325760532
+    second: Axe Throw_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Axe Throw_0
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 4345
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d077305072608b4d0800000000000000
+      internalID: -3118735977296464115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_1
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 4345
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5efc785c3bcf95380800000000000000
+      internalID: -8981870132770385947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_2
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 4345
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 981b27b35a6182b60800000000000000
+      internalID: 7721446460049502601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_3
+      rect:
+        serializedVersion: 2
+        x: 3336
+        y: 4345
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c285912fbdd86a0800000000000000
+      internalID: -6445253658843534213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_4
+      rect:
+        serializedVersion: 2
+        x: 4378
+        y: 4345
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f16e8b21a26f57190800000000000000
+      internalID: -7965189705371687393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_5
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 3317
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d84601c2917845be0800000000000000
+      internalID: -1489417034569587571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_6
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 3317
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e86bcbe0839fc10800000000000000
+      internalID: 2087761538209713711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_7
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 3317
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2640304b1e2c9a430800000000000000
+      internalID: 3794778435679880290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_8
+      rect:
+        serializedVersion: 2
+        x: 3336
+        y: 3317
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 892a4b61e154cb9e0800000000000000
+      internalID: -1604331371718466920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_9
+      rect:
+        serializedVersion: 2
+        x: 4378
+        y: 3317
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee3e0bf73517e9e0800000000000000
+      internalID: -1592280613072781591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_10
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 2289
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aa9559b9aff861d0800000000000000
+      internalID: -3357152417780753757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_11
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 2289
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a35ba56e2d55170b0800000000000000
+      internalID: -5732706486369733318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_12
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 2289
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a68504e4a9083b860800000000000000
+      internalID: 7544515201001871466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_13
+      rect:
+        serializedVersion: 2
+        x: 3336
+        y: 2289
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d230e8071b0a4d580800000000000000
+      internalID: -8803234687644466387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_14
+      rect:
+        serializedVersion: 2
+        x: 4378
+        y: 2289
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb6e171ffafcb2440800000000000000
+      internalID: 4912248173154657980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_15
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1261
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c72414329bdb8770800000000000000
+      internalID: 8614220133261649863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_16
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 1261
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a8a9486827a9d410800000000000000
+      internalID: 1502415742694959266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_17
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 1261
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd68177fcc55d3c0800000000000000
+      internalID: -4335457020148159037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_18
+      rect:
+        serializedVersion: 2
+        x: 3336
+        y: 1261
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 491985c1e1845fb70800000000000000
+      internalID: 8932124730121032084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_19
+      rect:
+        serializedVersion: 2
+        x: 4378
+        y: 1261
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4052936962e5c4f0800000000000000
+      internalID: -808991615773159347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_20
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 233
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1894b4bc20e485990800000000000000
+      internalID: -7397076614048429695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_21
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 233
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6528fffd1f9d8c9c0800000000000000
+      internalID: -3906633043875495338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Axe Throw_22
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 233
+        width: 642
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ebfe610468b4120800000000000000
+      internalID: 2399158836325760532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

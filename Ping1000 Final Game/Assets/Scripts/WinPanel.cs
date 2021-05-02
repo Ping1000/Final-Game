@@ -35,8 +35,12 @@ public class WinPanel : MonoBehaviour {
         foreach (Basket basket in FindObjectsOfType<Basket>()) {
             basket.gameObject.SetActive(false);
         }
-        LeanTween.alpha(winPanel.rectTransform, 1, 3).setOnComplete(() =>
-        LevelController.instance.StartNextDay());
+        LeanTween.alpha(winPanel.rectTransform, 1, 3).setOnComplete(() => {
+            if (didWin)
+                LevelController.instance.StartNextDay();
+            else
+                LevelController.instance.RestartDay();
+        });
     }
 
     /// <summary>
