@@ -19,6 +19,7 @@ public class PersonFeatures {
         yellow,
         blonde,
         orange,
+        tan,
         black
     }
 
@@ -46,6 +47,8 @@ public class PersonFeatures {
                 return "blonde";
             case FeatureColor.black:
                 return "black";
+            case FeatureColor.tan:
+                return "tan";
             case FeatureColor.orange:
                 return "orange";
             default:
