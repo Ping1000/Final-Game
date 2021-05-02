@@ -36,6 +36,8 @@ public class DenyButton : MonoBehaviour
     // Used for the Flowchart's control flow
     public void UpdateFlowchartBool() {
         _fc.SetBooleanVariable("WasAble", DidMeetThreshold());
+        _fc.SetBooleanVariable("WasWolf",
+            LevelController.GetDailyWolfFeatures().NonNoneEquals(person.features));
         person.GetComponent<Collider2D>().enabled = false;
     }
 

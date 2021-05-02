@@ -11,6 +11,12 @@ public class Person : MonoBehaviour
     [HideInInspector]
     public string offByOneFeature = null;
 
+    public static Person activePerson;
+
+    private void Awake() {
+        activePerson = this;
+    }
+
     // Start is called before the first frame update
     void Start() {
         // using invoke sucks but i'm keeping it for now
