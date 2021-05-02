@@ -10,9 +10,9 @@ public class Ear : MonoBehaviour, ISizeable
             case PersonFeatures.FeatureSize.small:
                 // nothing for now
                 break;
-            case PersonFeatures.FeatureSize.medium:
-                curScale *= 2;
-                break;
+            //case PersonFeatures.FeatureSize.medium:
+            //    curScale *= 2;
+            //    break;
             case PersonFeatures.FeatureSize.large:
                 curScale *= 4;
                 break;

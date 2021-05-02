@@ -67,6 +67,7 @@ public class Basket : MonoBehaviour
     public void UpdateFlowchartBool() {
         bool fitDesc = WasTrueMatch() || WasHiddenMatch();
         GameManager.instance.CorrectBaskets += (fitDesc ? 1 : 0);
+        person.GetComponent<Collider2D>().enabled = false;
         _fc.SetBooleanVariable("PersonFitDescription", fitDesc);
     }
 
@@ -101,5 +102,24 @@ public class Basket : MonoBehaviour
     /// </summary>
     public void ReplenishBasket() {
         FindObjectOfType<GameManager>().PlaceBasket(basketListIdx);
+    }
+
+    public void SetMatchesLists() {
+        foreach (GameObject person_go in Resources.LoadAll<GameObject>("Persons/")) {
+            PersonFeatures pf = person_go.GetComponent<Person>().features;
+
+            int diff = basketFeatures.NonNoneFeatureDiff(pf);
+            switch (diff) {
+                case 0:
+                    trueMatches.Add(person_go);
+                    break;
+                case 1:
+                    hiddenMatches.Add(person_go);
+                    break;
+                default:
+                    nonMatches.Add(person_go);
+                    break;
+            }
+        }
     }
 }

@@ -120,8 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   features:
-    earSize: 3
-    eyeSize: 3
+    earSize: 2
+    eyeSize: 2
     eyeColor: 3
     noseSize: 1
     hairColor: 1
@@ -177,11 +177,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3111451160604585580}
     m_Modifications:
+    - target: {fileID: 2818040179507119602, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+        type: 3}
+      propertyPath: selectedCommands.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818040179507119602, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+        type: 3}
+      propertyPath: selectedBlocks.Array.data[0]
+      value: 
+      objectReference: {fileID: 3188479985674465737}
+    - target: {fileID: 2818040179507119602, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+        type: 3}
+      propertyPath: selectedCommands.Array.data[0]
+      value: 
+      objectReference: {fileID: 6032721439105434966}
     - target: {fileID: 5267626077449632083, guid: 1eecfee68f3ef48a2beb160299fcec5b,
         type: 3}
       propertyPath: m_Name
       value: Person Flowchart
       objectReference: {fileID: 0}
+    - target: {fileID: 6203702322941859378, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+        type: 3}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: -5069132972161010255, guid: 7160158cdef804ed5950f076df59f98d,
+        type: 3}
+    - target: {fileID: 6203702322941859378, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 3111451160604585578}
+    - target: {fileID: 6868495222054388529, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+        type: 3}
+      propertyPath: clickableObject
+      value: 
+      objectReference: {fileID: 8050524367538524798}
     - target: {fileID: 7394336313437397838, guid: 1eecfee68f3ef48a2beb160299fcec5b,
         type: 3}
       propertyPath: m_RootOrder
@@ -245,3 +276,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 409671758735758180}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3188479985674465737 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2995091578703700653, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 409671758735758180}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6032721439105434966 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6203702322941859378, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 409671758735758180}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

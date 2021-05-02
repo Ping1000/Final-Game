@@ -16,7 +16,6 @@ public class PersonFeatures {
         blue,
         green,
         red,
-        yellow,
         blonde,
         orange,
         tan,
@@ -41,8 +40,6 @@ public class PersonFeatures {
                 return "green";
             case FeatureColor.red:
                 return "red";
-            case FeatureColor.yellow:
-                return "yellow";
             case FeatureColor.blonde:
                 return "blonde";
             case FeatureColor.black:
@@ -65,7 +62,6 @@ public class PersonFeatures {
     public enum FeatureSize {
         NONE,
         small,
-        medium,
         large
     }
 
@@ -80,8 +76,6 @@ public class PersonFeatures {
         switch (size) {
             case FeatureSize.small:
                 return "small";
-            case FeatureSize.medium:
-                return "medium";
             case FeatureSize.large:
                 return "large";
             default:
@@ -267,5 +261,36 @@ public class PersonFeatures {
         if (facialHair != FeatureBool.NONE && facialHair != b.facialHair)
             return false;
         return true;
+    }
+
+    /// <summary>
+    /// Returns the number of different features with this and other, but
+    /// ignores fields in *this* PersonFeatures object that are NONE. Useful
+    /// for checking baskets with people, since the basket features will be a
+    /// subset of a person's features.
+    /// </summary>
+    /// <param name="other"></param>
+    /// <returns></returns>
+    public int NonNoneFeatureDiff(PersonFeatures other) {
+        int result = 0;
+
+        if (earSize != FeatureSize.NONE && earSize != other.earSize)
+            result++;
+        if (eyeSize != FeatureSize.NONE && eyeSize != other.eyeSize)
+            result++;
+        if (eyeColor != FeatureColor.NONE && eyeColor != other.eyeColor)
+            result++;
+        if (noseSize != FeatureSize.NONE && noseSize != other.noseSize)
+            result++;
+        if (hairColor != FeatureColor.NONE && hairColor != other.hairColor)
+            result++;
+        if (glasses != FeatureBool.NONE && glasses != other.glasses)
+            result++;
+        if (hat != FeatureBool.NONE && hat != other.hat)
+            result++;
+        if (facialHair != FeatureBool.NONE && facialHair != other.facialHair)
+            result++;
+
+        return result;
     }
 }

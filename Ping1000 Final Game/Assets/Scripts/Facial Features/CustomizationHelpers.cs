@@ -14,8 +14,6 @@ public class CustomizationHelpers
                 return Color.green;
             case PersonFeatures.FeatureColor.red:
                 return Color.red;
-            case PersonFeatures.FeatureColor.yellow:
-                return Color.yellow;
             case PersonFeatures.FeatureColor.black:
                 return Color.black;
             default:

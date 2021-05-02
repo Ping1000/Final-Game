@@ -124,7 +124,7 @@ MonoBehaviour:
     eyeSize: 1
     eyeColor: 2
     noseSize: 1
-    hairColor: 6
+    hairColor: 5
     glasses: 2
     hat: 1
     facialHair: 2
@@ -177,11 +177,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7616295488377489487}
     m_Modifications:
+    - target: {fileID: 2818040179507119602, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+        type: 3}
+      propertyPath: selectedCommands.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818040179507119602, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+        type: 3}
+      propertyPath: selectedBlocks.Array.data[0]
+      value: 
+      objectReference: {fileID: 5402927681516594449}
+    - target: {fileID: 2818040179507119602, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+        type: 3}
+      propertyPath: selectedCommands.Array.data[0]
+      value: 
+      objectReference: {fileID: 3854034070337556878}
     - target: {fileID: 5267626077449632083, guid: 1eecfee68f3ef48a2beb160299fcec5b,
         type: 3}
       propertyPath: m_Name
       value: Person Flowchart
       objectReference: {fileID: 0}
+    - target: {fileID: 6203702322941859378, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+        type: 3}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: 6132103251998615991, guid: b708be1ec1f714012b41f8c382e0b9e8,
+        type: 3}
     - target: {fileID: 6203702322941859378, guid: 1eecfee68f3ef48a2beb160299fcec5b,
         type: 3}
       propertyPath: character
@@ -255,3 +276,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7164028494937982908}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5402927681516594449 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2995091578703700653, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7164028494937982908}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3854034070337556878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6203702322941859378, guid: 1eecfee68f3ef48a2beb160299fcec5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7164028494937982908}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
