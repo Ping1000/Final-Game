@@ -6,18 +6,18 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private bool toggleHiddenMatch; // yes ==> hidden match, no ==> non match
+    // private bool toggleHiddenMatch; // yes ==> hidden match, no ==> non match
     public static int guaranteedMatchingPeople; // matching people before a non-matcher
     private int peopleSpawned = 0;
 
-    [Tooltip("Non-NONE features will be examined.")]
-    public PersonFeatures featuresToCheckFor;
+    private PersonFeatures featuresToCheckFor;
     // List of basket objects in the scene
     public List<GameObject> basketPrefabs;
 
     public QuotaUI quotaUI;
-    public WinPanel winObj;
+    public LevelController levelController;
     public Image refreshPanel;
+    [HideInInspector]
     public int quota;
 
     private int _correctBaskets;
@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
+        featuresToCheckFor = LevelController.GetDailyFeatures();
+        quota = LevelController.GetDailyQuota();
         DisableBaskets(); // make baskets inactive
         SpawnBaskets(); // spawn clones of the (now inactive) baskets
         GenerateNonMatchers(); // build up the list of non-matching people
@@ -63,7 +65,7 @@ public class GameManager : MonoBehaviour
             });
         Timer.OnCountdownComplete += (() => instance.isPlaying = false);
 
-        toggleHiddenMatch = true; // we can change, this system is basic anyways
+        // toggleHiddenMatch = true; // we can change, this system is basic anyways
         CreateNewPerson(); // spawn the first NPC
     }
 
@@ -267,16 +269,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnDayCompleted() {
-        winObj.ShowWinScreen(CorrectBaskets >= quota);
-    }
-
     /// <summary>
     /// Instantiate a new person
     /// </summary>
     public static void CreateNewPerson()  {
         if (!instance.isPlaying) {
-            instance.OnDayCompleted();
+            instance.levelController.OnDayCompleted();
             return;
         }
 
@@ -286,12 +284,15 @@ public class GameManager : MonoBehaviour
         if (instance.peopleSpawned % guaranteedMatchingPeople == 0) {
             // spawn either off by one or non-matchers
             // person.useRandom = true;
-            if (instance.toggleHiddenMatch) {
-                personObj = Instantiate(instance.SelectHiddenMatchingPerson());
-            } else {
-                personObj = Instantiate(instance.SelectNonmatchingPerson()); // FOR NOW
-            }
-            instance.toggleHiddenMatch = !instance.toggleHiddenMatch;
+            //if (instance.toggleHiddenMatch) {
+            //    personObj = Instantiate(instance.SelectHiddenMatchingPerson());
+            //} else {
+            //    personObj = Instantiate(instance.SelectNonmatchingPerson()); // FOR NOW
+            //}
+            //instance.toggleHiddenMatch = !instance.toggleHiddenMatch;
+
+            // so many matches that nonmatchers are very infrequent
+            personObj = Instantiate(instance.SelectNonmatchingPerson());
         } else {
             // person.useRandom = false;
             personObj = Instantiate(instance.SelectMatchingPerson());

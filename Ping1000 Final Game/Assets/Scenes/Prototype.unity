@@ -544,6 +544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 684496755}
   - component: {fileID: 684496756}
+  - component: {fileID: 684496757}
   - component: {fileID: 684496758}
   m_Layer: 0
   m_Name: Manager
@@ -578,8 +579,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43cb62950588b44d80a65dca7208043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  featuresToCheckFor:
-    earSize: 1
+  basketPrefabs:
+  - {fileID: 1631367331}
+  - {fileID: 408542333}
+  - {fileID: 1871633410}
+  quotaUI: {fileID: 1225980120}
+  levelController: {fileID: 684496757}
+  refreshPanel: {fileID: 536925465}
+  quota: 1
+  hiddenMatchers: []
+  nonMatchers: []
+--- !u!114 &684496757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684496754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206746d01c5d647069997e503dc804bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dailyFeatures:
+  - earSize: 1
     eyeSize: 1
     eyeColor: 1
     noseSize: 0
@@ -587,16 +610,24 @@ MonoBehaviour:
     glasses: 0
     hat: 0
     facialHair: 0
-  basketPrefabs:
-  - {fileID: 1631367331}
-  - {fileID: 408542333}
-  - {fileID: 1871633410}
-  quotaUI: {fileID: 1225980120}
+  - earSize: 1
+    eyeSize: 0
+    eyeColor: 1
+    noseSize: 0
+    hairColor: 1
+    glasses: 0
+    hat: 1
+    facialHair: 0
+  - earSize: 1
+    eyeSize: 1
+    eyeColor: 1
+    noseSize: 0
+    hairColor: 1
+    glasses: 0
+    hat: 0
+    facialHair: 1
+  dailyQuotas: 010000000200000003000000
   winObj: {fileID: 1496343804}
-  refreshPanel: {fileID: 536925465}
-  quota: 10
-  hiddenMatchers: []
-  nonMatchers: []
 --- !u!114 &684496758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,7 +997,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 66
     y: 68
-    width: 120
+    width: 120.14029
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1000,11 +1031,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 72, y: 15}
+  scrollPos: {x: 72.18236, y: 15.102236}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 1
+  zoom: 0.9979999
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -1856,7 +1887,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1336671600}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -2064,8 +2095,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 993064308}
-  - {fileID: 1496343801}
   - {fileID: 1225980119}
+  - {fileID: 1496343801}
   - {fileID: 536925464}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -2093,7 +2124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1496343801
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2107,7 +2138,7 @@ RectTransform:
   m_Children:
   - {fileID: 1100618803}
   m_Father: {fileID: 1336671600}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2325,7 +2356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 980027759}
+  selectedFlowchart: {fileID: 212044963}
 --- !u!4 &1868727070
 Transform:
   m_ObjectHideFlags: 1

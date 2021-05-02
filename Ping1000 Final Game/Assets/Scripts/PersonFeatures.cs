@@ -193,11 +193,11 @@ public class PersonFeatures {
             presentFeatures.Add(FeatureSizeToString(earSize) + " nose");
         if (hairColor != FeatureColor.NONE)
             presentFeatures.Add(FeatureColorToString(hairColor) + " hair");
-        if (glasses != FeatureBool.NONE)
+        if (glasses == FeatureBool.yes)
             presentFeatures.Add("glasses");
-        if (hat != FeatureBool.NONE)
+        if (hat == FeatureBool.yes)
             presentFeatures.Add("a hat");
-        if (facialHair != FeatureBool.NONE)
+        if (facialHair == FeatureBool.yes)
             presentFeatures.Add("facial hair");
 
         switch (presentFeatures.Count) {
