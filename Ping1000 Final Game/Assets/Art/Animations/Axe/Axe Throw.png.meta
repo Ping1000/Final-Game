@@ -171,10 +171,10 @@ TextureImporter:
       name: Axe Throw_0
       rect:
         serializedVersion: 2
-        x: 210
-        y: 4345
-        width: 642
-        height: 528
+        x: 0
+        y: 4096
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: Axe Throw_1
       rect:
         serializedVersion: 2
-        x: 1252
-        y: 4345
-        width: 642
-        height: 528
+        x: 1024
+        y: 4096
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: Axe Throw_2
       rect:
         serializedVersion: 2
-        x: 2294
-        y: 4345
-        width: 642
-        height: 528
+        x: 2048
+        y: 4096
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: Axe Throw_3
       rect:
         serializedVersion: 2
-        x: 3336
-        y: 4345
-        width: 642
-        height: 528
+        x: 3072
+        y: 4096
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +255,10 @@ TextureImporter:
       name: Axe Throw_4
       rect:
         serializedVersion: 2
-        x: 4378
-        y: 4345
-        width: 642
-        height: 528
+        x: 4096
+        y: 4096
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,10 +276,10 @@ TextureImporter:
       name: Axe Throw_5
       rect:
         serializedVersion: 2
-        x: 210
-        y: 3317
-        width: 642
-        height: 528
+        x: 0
+        y: 3072
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,10 +297,10 @@ TextureImporter:
       name: Axe Throw_6
       rect:
         serializedVersion: 2
-        x: 1252
-        y: 3317
-        width: 642
-        height: 528
+        x: 1024
+        y: 3072
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,10 +318,10 @@ TextureImporter:
       name: Axe Throw_7
       rect:
         serializedVersion: 2
-        x: 2294
-        y: 3317
-        width: 642
-        height: 528
+        x: 2048
+        y: 3072
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,10 +339,10 @@ TextureImporter:
       name: Axe Throw_8
       rect:
         serializedVersion: 2
-        x: 3336
-        y: 3317
-        width: 642
-        height: 528
+        x: 3072
+        y: 3072
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,10 +360,10 @@ TextureImporter:
       name: Axe Throw_9
       rect:
         serializedVersion: 2
-        x: 4378
-        y: 3317
-        width: 642
-        height: 528
+        x: 4096
+        y: 3072
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,10 +381,10 @@ TextureImporter:
       name: Axe Throw_10
       rect:
         serializedVersion: 2
-        x: 210
-        y: 2289
-        width: 642
-        height: 528
+        x: 0
+        y: 2048
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,10 +402,10 @@ TextureImporter:
       name: Axe Throw_11
       rect:
         serializedVersion: 2
-        x: 1252
-        y: 2289
-        width: 642
-        height: 528
+        x: 1024
+        y: 2048
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -423,10 +423,10 @@ TextureImporter:
       name: Axe Throw_12
       rect:
         serializedVersion: 2
-        x: 2294
-        y: 2289
-        width: 642
-        height: 528
+        x: 2048
+        y: 2048
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -444,10 +444,10 @@ TextureImporter:
       name: Axe Throw_13
       rect:
         serializedVersion: 2
-        x: 3336
-        y: 2289
-        width: 642
-        height: 528
+        x: 3072
+        y: 2048
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -465,10 +465,10 @@ TextureImporter:
       name: Axe Throw_14
       rect:
         serializedVersion: 2
-        x: 4378
-        y: 2289
-        width: 642
-        height: 528
+        x: 4096
+        y: 2048
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -486,10 +486,10 @@ TextureImporter:
       name: Axe Throw_15
       rect:
         serializedVersion: 2
-        x: 210
-        y: 1261
-        width: 642
-        height: 528
+        x: 0
+        y: 1024
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -507,10 +507,10 @@ TextureImporter:
       name: Axe Throw_16
       rect:
         serializedVersion: 2
-        x: 1252
-        y: 1261
-        width: 642
-        height: 528
+        x: 1024
+        y: 1024
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -528,10 +528,10 @@ TextureImporter:
       name: Axe Throw_17
       rect:
         serializedVersion: 2
-        x: 2294
-        y: 1261
-        width: 642
-        height: 528
+        x: 2048
+        y: 1024
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -549,10 +549,10 @@ TextureImporter:
       name: Axe Throw_18
       rect:
         serializedVersion: 2
-        x: 3336
-        y: 1261
-        width: 642
-        height: 528
+        x: 3072
+        y: 1024
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -570,10 +570,10 @@ TextureImporter:
       name: Axe Throw_19
       rect:
         serializedVersion: 2
-        x: 4378
-        y: 1261
-        width: 642
-        height: 528
+        x: 4096
+        y: 1024
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -591,10 +591,10 @@ TextureImporter:
       name: Axe Throw_20
       rect:
         serializedVersion: 2
-        x: 210
-        y: 233
-        width: 642
-        height: 528
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -612,10 +612,10 @@ TextureImporter:
       name: Axe Throw_21
       rect:
         serializedVersion: 2
-        x: 1252
-        y: 233
-        width: 642
-        height: 528
+        x: 1024
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -633,10 +633,10 @@ TextureImporter:
       name: Axe Throw_22
       rect:
         serializedVersion: 2
-        x: 2294
-        y: 233
-        width: 642
-        height: 528
+        x: 2048
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
