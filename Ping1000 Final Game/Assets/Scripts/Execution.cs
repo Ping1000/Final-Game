@@ -30,6 +30,7 @@ public class Execution : MonoBehaviour
 
     public void DialogFinished() {
         Destroy(p.gameObject);
+        ExecuteButton.canExecute = true;
         GameManager.CreateNewPerson();
         Destroy(gameObject);
     }
