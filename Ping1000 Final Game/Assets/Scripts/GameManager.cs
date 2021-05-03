@@ -350,8 +350,8 @@ public class GameManager : MonoBehaviour {
             personObj = Instantiate(instance.SelectMatchingPerson());
         }
         // This is bad, it would be better to have start position and move vector as an input with a default value that you can change around. This is working for now though...
-        personObj.transform.position = new Vector3(15, 0, 0); 
-        LeanTween.move(personObj, new Vector3(1, 0, 0), 2f);
+        personObj.transform.position = new Vector3(15, -.5f, 0); 
+        LeanTween.move(personObj, new Vector3(1, -.5f, 0), 2f);
     }
 
     /// <summary>

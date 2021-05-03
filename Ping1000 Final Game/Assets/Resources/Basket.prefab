@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 917657441
   m_SortingLayer: 3
   m_SortingOrder: 20
-  m_Sprite: {fileID: -6903890063749029538, guid: b39e4d304b3b20540b513f6ae8aab901,
+  m_Sprite: {fileID: 5145001025926319429, guid: 1a7c12755ab3d44dd9857683cedc4cfa,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -105,7 +105,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12.378702, y: 14.25}
+    oldSize: {x: 12.563594, y: 14.4375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: -6903890063749029538, guid: b39e4d304b3b20540b513f6ae8aab901,
+            m_ObjectArgument: {fileID: 5145001025926319429, guid: 1a7c12755ab3d44dd9857683cedc4cfa,
               type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
