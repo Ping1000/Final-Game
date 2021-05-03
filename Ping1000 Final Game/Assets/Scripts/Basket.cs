@@ -105,6 +105,11 @@ public class Basket : MonoBehaviour
         LevelController.instance.winObj.ShowWolfScene();
     }
 
+    // used by the flowchart
+    public void IncreaseQuota(int amt) {
+        GameManager.instance.IncreaseQuota(amt);
+    }
+
     /// <summary>
     /// Places a new basket
     /// </summary>

@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 7147834561256291564}
   - component: {fileID: 3076025066812083416}
   - component: {fileID: 4869065169465128783}
+  - component: {fileID: 5664829368714940933}
   m_Layer: 0
   m_Name: Basket Dragging Flowchart
   m_TagString: Untagged
@@ -305,7 +306,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 8937838029549418827}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 5664829368714940933}
   variables:
   - {fileID: 8937838029549418833}
   - {fileID: 277878881191942195}
@@ -335,7 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 106
+    x: 104.87855
     y: 108
     width: 112.052086
     height: 40
@@ -360,6 +362,7 @@ MonoBehaviour:
   - {fileID: 5656096769127856152}
   - {fileID: 7688421538309519576}
   - {fileID: 4911764416350616444}
+  - {fileID: 5664829368714940933}
   - {fileID: 2115085749712924587}
   - {fileID: 8542882220324368472}
   - {fileID: 3286261313637087090}
@@ -773,7 +776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 18
   indentLevel: 1
-  storyText: That was incorrect.
+  storyText: That was incorrect. You'll need to make up for your mistake.
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -1443,3 +1446,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 25
   indentLevel: 1
+--- !u!114 &5664829368714940933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8937838029549418826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 26
+  indentLevel: 1
+  description: 
+  delay: 0
+  invokeType: 0
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8937838029261897086}
+        m_MethodName: IncreaseQuota
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  booleanParameter:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []

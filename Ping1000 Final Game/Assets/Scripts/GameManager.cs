@@ -32,12 +32,10 @@ public class GameManager : MonoBehaviour {
     /// <summary>
     /// List of the people who are hidden matchers
     /// </summary>
-    [SerializeField]
     private List<GameObject> hiddenMatchers;
     /// <summary>
     /// List of the people who are non-matchers
     /// </summary>
-    [SerializeField]
     private List<GameObject> nonMatchers;
 
     private bool isPlaying;
