@@ -6,6 +6,7 @@ using Fungus;
 public class Execution : MonoBehaviour
 {
     private Person p;
+    private bool wasWolf = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,16 +23,20 @@ public class Execution : MonoBehaviour
 
     public void OnAnimationCompleted() {
         Flowchart fc = GetComponentInChildren<Flowchart>();
-        fc.SetBooleanVariable("WasWolf",
-            LevelController.GetDailyWolfFeatures().
-            NonNoneEquals(Person.activePerson.features));
+        bool wasWolf = LevelController.GetDailyWolfFeatures().
+            NonNoneEquals(Person.activePerson.features);
+        fc.SetBooleanVariable("WasWolf", wasWolf);
+        this.wasWolf = wasWolf;
         fc.ExecuteBlock("On Animation Completed");
     }
 
     public void DialogFinished() {
         // TODO Need to check if p was innocent villager or not to give time bonus
         Destroy(p.gameObject);
-        Timer.instance.daySeconds += 60;
+        if (wasWolf) {
+            Timer.instance.daySeconds += 60;
+            Timer.instance.SetTimerUI();
+        }
         ExecuteButton.canExecute = true;
         GameManager.CreateNewPerson();
         Destroy(gameObject);

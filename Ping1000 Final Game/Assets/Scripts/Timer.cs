@@ -76,7 +76,7 @@ public class Timer : MonoBehaviour
 
     public static event Action OnCountdownComplete;
 
-    void SetTimerUI() {
+    public void SetTimerUI() {
         int minutes = daySeconds / 60;
         int seconds = daySeconds % 60;
         string secondString = seconds >= 10 ? seconds.ToString() : "0" + seconds;
