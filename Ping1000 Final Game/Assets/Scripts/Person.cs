@@ -21,6 +21,7 @@ public class Person : MonoBehaviour
     void Start() {
         // using invoke sucks but i'm keeping it for now
         Invoke("UpdateBasketPerson", Time.deltaTime);
+        SFXManager.PlayNewSound("Customer_Enter", volumeType.half);
     }
 
     private void UpdateBasketPerson() {

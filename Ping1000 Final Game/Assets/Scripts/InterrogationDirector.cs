@@ -37,6 +37,7 @@ public class InterrogationDirector : MonoBehaviour {
     // Called by the flowchart when the interrogation was started
     public void OnInterrogationStarted() {
         Person p = transform.GetComponentInParent<Person>();
+        Basket offBasket = null;
 
         // determine if the person was a true or hidden match
         foreach (Basket b in FindObjectsOfType<Basket>()) {
@@ -52,6 +53,7 @@ public class InterrogationDirector : MonoBehaviour {
                 // if hidden match, need to keep looping in case true match
                 // for some other basket
                 p.SetOffByOneFeature(b);
+                offBasket = b;
             }
         }
 
@@ -60,6 +62,7 @@ public class InterrogationDirector : MonoBehaviour {
             PlayerDialog = "Care to explain some of these discrepancies in your description? {wi}" +
                 "We're specifically looking at an issue with your " + p.offByOneFeature;
             ResponseDialog = GetGenuineExcuse(p.offByOneFeature);
+            ResponseDialog += GetSpecificExcuse(p.offByOneFeature, offBasket);
         } else {
             // non-matcher
             // for now, just dumb excuses and not feature-specific
@@ -68,6 +71,61 @@ public class InterrogationDirector : MonoBehaviour {
             ResponseDialog = non_match_responses[Random.Range(0, non_match_responses.Length)];
         }
         _fc.ExecuteBlock("Play Interrogation Dialog");
+    }
+
+    /// <summary>
+    /// Returns an additional excuse that is specific to  
+    /// </summary>
+    /// <param name="featureStr">The feature that is off</param>
+    /// <param name="b">The basket containing the true features</param>
+    /// <returns></returns>
+    private string GetSpecificExcuse(string featureStr, Basket b) {
+        if (b == null)
+            return "";
+        string res = "";
+
+        PersonFeatures pf = b.basketFeatures;
+
+        switch (featureStr) {
+            case "ears":
+                res = "{wc}My ears are normally " + pf.FeatureSizeToString(pf.earSize) + ".";
+                break;
+            case "eye size":
+                res = "{wc}My eyes are normally " + pf.FeatureSizeToString(pf.eyeSize) + ".";
+                break;
+            case "eye color":
+                res = "{wc}My eyes are normally " + pf.FeatureColorToString(pf.eyeColor) + ".";
+                break;
+            case "nose":
+                res = "{wc}My nose is normally " + pf.FeatureSizeToString(pf.noseSize) + ".";
+                break;
+            case "hair color":
+                res = "{wc}My hair is normally " + pf.FeatureColorToString(pf.hairColor) + ".";
+                break;
+            case "glasses":
+                if (pf.glasses == PersonFeatures.FeatureBool.yes)
+                    res = "{wc}I normally wear glasses.";
+                else
+                    res = "{wc}I don't normally wear glasses.";
+                break;
+            case "hat":
+                if (pf.hat == PersonFeatures.FeatureBool.yes)
+                    res = "{wc}I was wearing a hat when they identified me.";
+                else
+                    res = "{wc}I wasn't wearing this hat when they identified me.";
+                break;
+            case "facial hair":
+                if (pf.facialHair == PersonFeatures.FeatureBool.yes)
+                    res = "{wc}I shaved after they identified me.";
+                else
+                    res = "{wc}I grew out my facial hair.";
+                break;
+            default:
+                res = "";
+                break;
+        }
+
+        return res;
     }
 
     /// <summary>
