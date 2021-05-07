@@ -60,7 +60,7 @@ public class WinPanel : MonoBehaviour {
 
     public void ShowWolfScene() {
         ShowWinScreen(false,
-            "You gave the wolf a basket. They went on to terrorize the village.");
+            "You gave the wolf a basket.\nThey went on to terrorize the village.");
     }
 
     /// <summary>

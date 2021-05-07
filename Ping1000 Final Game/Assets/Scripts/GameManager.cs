@@ -261,7 +261,7 @@ public class GameManager : MonoBehaviour {
         quotaUI.UpdateQuotaText();
     }
 
-    private void RefreshBaskets() {
+    public void RefreshBaskets() {
         foreach (Basket b in FindObjectsOfType<Basket>()) {
             Destroy(b.gameObject);
         }
@@ -338,8 +338,9 @@ public class GameManager : MonoBehaviour {
             //}
             //instance.toggleHiddenMatch = !instance.toggleHiddenMatch;
 
-            // so many matches that nonmatchers are very infrequent
-            personObj = Instantiate(instance.SelectNonmatchingPerson());
+            // so many nonmatches anyways
+            // personObj = Instantiate(instance.SelectNonmatchingPerson());
+            personObj = Instantiate(instance.SelectMatchingPerson());
         } else if (instance.peopleSpawned % peopleBeforeWolf == 0) {
             // spawn wolf
             personObj = Instantiate(instance.SelectWolf());

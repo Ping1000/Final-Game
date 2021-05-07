@@ -41,6 +41,18 @@ public class DenyButton : MonoBehaviour
         person.GetComponent<Collider2D>().enabled = false;
     }
 
+    // used by the flowchart
+    public void RefreshBasketsOnDeny() {
+        Basket[] activeBaskets = FindObjectsOfType<Basket>();
+        activeBaskets[0].GetComponent<Collider2D>().enabled = false;
+        LeanTween.scale(activeBaskets[0].gameObject, Vector3.zero, 1f).
+            setOnComplete(() => GameManager.instance.RefreshBaskets());
+        for (int i = 1; i < activeBaskets.Length; i++) {
+            activeBaskets[i].GetComponent<Collider2D>().enabled = false;
+            LeanTween.scale(activeBaskets[i].gameObject, Vector3.zero, 1f);
+        }
+    }
+
     /// <summary>
     /// Returns true if the active person is a true or hidden match
     /// </summary>
