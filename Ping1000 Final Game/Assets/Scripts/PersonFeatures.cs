@@ -30,7 +30,7 @@ public class PersonFeatures {
         }
     }
 
-    private string FeatureColorToString(FeatureColor color) {
+    public string FeatureColorToString(FeatureColor color) {
         switch (color) {
             case FeatureColor.brown:
                 return "brown";
@@ -72,7 +72,7 @@ public class PersonFeatures {
         }
     }
 
-    private string FeatureSizeToString(FeatureSize size) {
+    public string FeatureSizeToString(FeatureSize size) {
         switch (size) {
             case FeatureSize.small:
                 return "small";

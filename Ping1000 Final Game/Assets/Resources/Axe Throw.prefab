@@ -18,6 +18,9 @@ GameObject:
   - component: {fileID: 7452454163150615310}
   - component: {fileID: 7452454163150615311}
   - component: {fileID: 7452454163150615344}
+  - component: {fileID: 4598581997798696357}
+  - component: {fileID: 5320876025323430963}
+  - component: {fileID: 1938477717040022044}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -52,11 +55,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 0, y: 0}
+  scrollPos: {x: 29.995272, y: 91.40779}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 1
+  zoom: 0.827929
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -64,9 +67,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 7452454163150615304}
+  - {fileID: 4598581997798696357}
   selectedCommands:
-  - {fileID: 7452454163150615344}
+  - {fileID: 1938477717040022044}
   variables:
   - {fileID: 7452454163150615309}
   description: 
@@ -95,7 +98,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 67
     y: 70
-    width: 149
+    width: 186.48512
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -506,6 +509,65 @@ MonoBehaviour:
   stringEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4598581997798696357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452454163150615302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 323.89975
+    y: 68.02616
+    width: 107.97598
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 7
+  blockName: On Spawn
+  description: 
+  eventHandler: {fileID: 5320876025323430963}
+  commandList:
+  - {fileID: 1938477717040022044}
+  suppressAllAutoSelections: 0
+--- !u!114 &5320876025323430963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452454163150615302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f6487d21a03404cb21b245f0242e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 4598581997798696357}
+  suppressBlockAutoSelect: 0
+  waitForFrames: 1
+--- !u!114 &1938477717040022044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452454163150615302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 8
+  indentLevel: 0
+  soundClip: {fileID: 8300000, guid: 11d67ab8c2fa443a5980e9de625ab22d, type: 3}
+  volume: 0.7
+  waitUntilFinished: 0
 --- !u!1 &7452454164747194044
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,7 +581,7 @@ GameObject:
   - component: {fileID: 7452454164747194016}
   - component: {fileID: 7452454164747194047}
   m_Layer: 0
-  m_Name: Axe Throw_0
+  m_Name: Axe Throw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

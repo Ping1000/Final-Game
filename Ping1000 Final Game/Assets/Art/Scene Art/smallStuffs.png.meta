@@ -14,6 +14,9 @@ TextureImporter:
   - first:
       213: 8626587971070358181
     second: cookie_icon
+  - first:
+      213: -8409416737851121990
+    second: basket_selected
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -190,6 +193,27 @@ TextureImporter:
       bones: []
       spriteID: 5a27e47dd0cc7b770800000000000000
       internalID: 8626587971070358181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basket_selected
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 821
+        width: 204
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abed82c2800cb4b80800000000000000
+      internalID: -8409416737851121990
       vertices: []
       indices: 
       edges: []

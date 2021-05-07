@@ -51,7 +51,7 @@ public class SFXManager : MonoBehaviour
         if (path == null || path == "")
             return;
 
-        GameObject sfxPlayer = Instantiate(Resources.Load("Audio/SFX Player") as GameObject, parent);
+        GameObject sfxPlayer = Instantiate(Resources.Load("SFX Player") as GameObject, parent);
         AudioSource playerSrc = sfxPlayer.GetComponent<AudioSource>();
         playerSrc.clip = Resources.Load(path) as AudioClip;
 
