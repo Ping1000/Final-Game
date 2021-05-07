@@ -29,6 +29,7 @@ public class Execution : MonoBehaviour
     }
 
     public void DialogFinished() {
+        // TODO Need to check if p was innocent villager or not to give time bonus
         Destroy(p.gameObject);
         Timer.instance.daySeconds += 60;
         ExecuteButton.canExecute = true;
