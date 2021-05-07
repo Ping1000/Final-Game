@@ -1590,7 +1590,7 @@ MonoBehaviour:
     glasses: 1
     hat: 1
     facialHair: 0
-  dailyQuotas: 010000000200000003000000
+  dailyQuotas: 050000000500000005000000
   winObj: {fileID: 168225345}
 --- !u!114 &684496758
 MonoBehaviour:
@@ -2433,6 +2433,8 @@ GameObject:
   - component: {fileID: 980027775}
   - component: {fileID: 980027774}
   - component: {fileID: 980027776}
+  - component: {fileID: 980027778}
+  - component: {fileID: 980027777}
   m_Layer: 0
   m_Name: Deny Button Flowchart
   m_TagString: Untagged
@@ -2547,7 +2549,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 66
     y: 68
-    width: 120.14029
+    width: 80.14029
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2571,6 +2573,8 @@ MonoBehaviour:
   - {fileID: 980027765}
   - {fileID: 980027767}
   - {fileID: 980027761}
+  - {fileID: 980027778}
+  - {fileID: 980027777}
   - {fileID: 980027762}
   suppressAllAutoSelections: 0
 --- !u!114 &980027759
@@ -2600,7 +2604,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 980027758}
   selectedCommands:
-  - {fileID: 980027776}
+  - {fileID: 980027777}
   variables:
   - {fileID: 980027760}
   - {fileID: 980027764}
@@ -3513,6 +3517,79 @@ MonoBehaviour:
   soundClip: {fileID: 8300000, guid: 46af5ce346443b940ba7b66b5a33b992, type: 3}
   volume: 0.6
   waitUntilFinished: 0
+--- !u!114 &980027777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980027753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 21
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1.1
+  durationOLD: 0
+--- !u!114 &980027778
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980027753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 20
+  indentLevel: 0
+  description: 
+  delay: 0
+  invokeType: 0
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 874110390}
+        m_MethodName: RefreshBasketsOnDeny
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  booleanParameter:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &993064307
 GameObject:
   m_ObjectHideFlags: 0
