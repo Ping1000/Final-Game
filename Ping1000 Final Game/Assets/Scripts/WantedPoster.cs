@@ -38,20 +38,20 @@ public class WantedPoster : MonoBehaviour
         fullWolfPoster.transform.localScale = Vector3.zero;
         fullWolfPoster.GetComponentInChildren<TextMesh>().text = GetWantedPosterText();
 
-        LeanTween.scale(fullWolfPoster, toScale, 1.5f).setEaseInOutQuint();
-        LeanTween.move(fullWolfPoster, toPos, 1.5f).setEaseInOutQuint().
+        LeanTween.scale(fullWolfPoster, toScale, .5f).setEaseInOutQuint();
+        LeanTween.move(fullWolfPoster, toPos, .5f).setEaseInOutQuint().
             setOnComplete(() => waitingToHidePoster = true);
     }
 
     public void HidePoster() {
         waitingToHidePoster = false;
-        LeanTween.scale(fullWolfPoster, Vector3.zero, 1.5f).setEaseInCirc();
-        LeanTween.move(fullWolfPoster, gameObject.transform.position, 1.5f).
+        LeanTween.scale(fullWolfPoster, Vector3.zero, .5f).setEaseInCirc();
+        LeanTween.move(fullWolfPoster, gameObject.transform.position, .5f).
             setEaseInCirc().setOnComplete(() => fullWolfPoster.SetActive(false));
     }
 
     private string GetWantedPosterText() {
-        string res = "<color=red>WANTED</color>\n\nBig Bad Wolf Has:\n";
+        string res = "<color=red>WANTED</color>\nBig Bad Wolf Has:\n";
 
         Debug.Log(_wolfFeatures.ToString());
 

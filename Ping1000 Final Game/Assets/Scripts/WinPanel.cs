@@ -6,21 +6,31 @@ using TMPro;
 
 public class WinPanel : MonoBehaviour {
     [SerializeField]
-    private TextMeshProUGUI winText;
-    private Image winPanel;
+    private TextMesh winText;
+    [SerializeField]
+    private SpriteRenderer winSprite;
 
     [Tooltip("A list of objects to deactivate when showing win screen.")]
     public List<GameObject> objsToDeactivate;
 
     // Start is called before the first frame update
     void Start() {
-        winPanel = GetComponent<Image>();
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update() {
 
+    }
+
+    private void SetSpriteAlpha(float newAlpha) {
+        Color c = winSprite.color;
+        winSprite.color = new Color(c.r, c.g, c.b, newAlpha);
+    }
+
+    private void SetTextAlpha(float newAlpha) {
+        Color c = winText.color;
+        winText.color = new Color(c.r, c.g, c.b, newAlpha);
     }
 
     public void ShowWinScreen(bool didWin, string msg = "") {
@@ -31,7 +41,7 @@ public class WinPanel : MonoBehaviour {
             winText.text = msg;
         }
         gameObject.SetActive(true);
-        winPanel.color = new Color(0, 0, 0, 0);
+        winSprite.color = new Color(1, 1, 1, 0);
         if (objsToDeactivate != null) {
             foreach (GameObject obj in objsToDeactivate)
                 obj.SetActive(false);
@@ -39,7 +49,8 @@ public class WinPanel : MonoBehaviour {
         foreach (Basket basket in FindObjectsOfType<Basket>()) {
             basket.gameObject.SetActive(false);
         }
-        LeanTween.alpha(winPanel.rectTransform, 1, 3).setOnComplete(() => {
+        LeanTween.value(winText.gameObject, SetTextAlpha, 0, 1, 3);
+        LeanTween.value(winSprite.gameObject, SetSpriteAlpha, 0, 1, 3).setOnComplete(() => {
             if (didWin)
                 LevelController.instance.StartNextDay();
             else
@@ -59,10 +70,10 @@ public class WinPanel : MonoBehaviour {
     /// <param name="newText"></param>
     /// <param name="transitionTime"></param>
     public void TextFadeOutIn(string newText, float transitionTime = 2f) {
-        LeanTween.alphaText(winText.rectTransform, 0, transitionTime / 2).
+        LeanTween.value(winText.gameObject, SetTextAlpha, 1, 0, transitionTime / 2).
             setOnComplete(() => {
                 winText.text = newText;
-                LeanTween.alphaText(winText.rectTransform, 1, transitionTime / 2);
+                LeanTween.value(winText.gameObject, SetTextAlpha, 0, 1, transitionTime / 2);
             });
     }
 }
