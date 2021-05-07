@@ -277,7 +277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Thank you little Red! You kept the town safe for the whole weekend
+  m_text: Thank you little Red! You kept the town safe for the whole weekend!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f36c9e650db5543899825fd3817bfcf0, type: 2}
   m_sharedMaterial: {fileID: -3093101573431018442, guid: f36c9e650db5543899825fd3817bfcf0,
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 90.6
+  m_fontSize: 90.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -611,8 +611,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5082282696695031996, guid: 7754cd887c79c4087adaa3738e15e380,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3438ce95d02e84b43a275c00b311cb27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -632,7 +631,7 @@ Transform:
   m_GameObject: {fileID: 1351955571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.05, y: -0.689, z: 0}
-  m_LocalScale: {x: 0.20054165, y: 0.20054165, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
