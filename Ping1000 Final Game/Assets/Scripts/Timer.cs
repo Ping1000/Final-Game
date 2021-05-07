@@ -53,6 +53,14 @@ public class Timer : MonoBehaviour
                 daySeconds--;
                 SetTimerUI();
                 countTrigger = 0f;
+                if (daySeconds <= 30) // TODO CHANGE BACK TO 30
+                {
+                    MusicManager.instance.PlayEndRush();
+                }
+                else
+                {
+                    MusicManager.instance.StopEndRush();
+                }
                 if (daySeconds <= 0) {
                     StopCountdown();
                     if (OnCountdownComplete != null) {
