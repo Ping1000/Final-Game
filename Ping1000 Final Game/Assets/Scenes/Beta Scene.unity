@@ -1236,8 +1236,6 @@ MonoBehaviour:
   levelController: {fileID: 684496757}
   refreshPanel: {fileID: 536925465}
   quota: 1
-  hiddenMatchers: []
-  nonMatchers: []
 --- !u!114 &684496757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1301,11 +1299,7 @@ MonoBehaviour:
     hat: 1
     facialHair: 0
   dailyQuotas: 010000000200000003000000
-<<<<<<< HEAD
   winObj: {fileID: 168225345}
-=======
-  winObj: {fileID: 1496343804}
->>>>>>> parent of 7be8542 (Beta scene fixes)
 --- !u!114 &684496758
 MonoBehaviour:
   m_ObjectHideFlags: 0
